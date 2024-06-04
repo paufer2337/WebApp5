@@ -1,11 +1,10 @@
-
 :root {
-  --light-blue: #6592B8;
-  --middle-blue: #4B7AA3;
-  --dark-blue: #3C6282;
-  --box-shadow: 2px 5px 10px -2px var(--light-blue);
+  --light-gray: #eeeeee;
+  --middle-gray: #909090;
+  --dark-gray: #383838;
+  --box-shadow: 2px 5px 10px -2px var(--light-gray);
   --large-border-radius: 70px;
-  --card-border: solid var(--light-blue) 2px;
+  --card-border: solid var(--light-gray) 2px;
 }
 
 html {
@@ -26,18 +25,16 @@ html {
 body {
   margin-bottom: 60px;
   font-family: 'Times New Roman', Times, serif;
-  background-color: var(--dark-blue);
+  background-color: var(--dark-gray);
 }
 
-.card
-{
+.card {
   border: var(--card-border);
   border-radius: 25px;
-  background-color: var(--middle-blue);
+  background-color: var(--middle-gray);
 }
 
-.card:hover
-{
+.card:hover {
   border: var(--card-border);
   border-radius: var(--large-border-radius);
   box-shadow: var(--box-shadow);
@@ -45,28 +42,30 @@ body {
   padding: 5%;
 }
 
-.card>.card-body>.card-title
-{
+.card>.card-body>.card-title {
   text-align: center;
 }
 
-a.card-link:visited{
+a.card-link:visited {
   color: #551A8B;
 }
 
-a.card-link{
+a.card-link {
   color: white;
   padding: 6px 12px;
   font-size: 15px;
-} 
-
-.container-fluid
-{
-  background-color: #6d97bc;
 }
 
-.form-select
-{
-  box-shadow: var(--box-shadow);
+.container-fluid {
+  background-color: var(--middle-gray);
+}
+
+.form-select {
   border-radius: var(--large-border-radius);
+}
+
+h1,
+
+label {
+  color: var(--light-gray);
 }
