@@ -1,3 +1,13 @@
+
+:root {
+  --light-blue: #6592B8;
+  --middle-blue: #4B7AA3;
+  --dark-blue: #3C6282;
+  --box-shadow: 2px 5px 10px -2px var(--light-blue);
+  --large-border-radius: 70px;
+  --card-border: solid var(--light-blue) 2px;
+}
+
 html {
   font-size: 14px;
 }
@@ -15,4 +25,48 @@ html {
 
 body {
   margin-bottom: 60px;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: var(--dark-blue);
+}
+
+.card
+{
+  border: var(--card-border);
+  border-radius: 25px;
+  background-color: var(--middle-blue);
+}
+
+.card:hover
+{
+  border: var(--card-border);
+  border-radius: var(--large-border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  padding: 5%;
+}
+
+.card>.card-body>.card-title
+{
+  text-align: center;
+}
+
+a.card-link:visited{
+  color: #551A8B;
+}
+
+a.card-link{
+  color: white;
+  padding: 6px 12px;
+  font-size: 15px;
+} 
+
+.container-fluid
+{
+  background-color: #6d97bc;
+}
+
+.form-select
+{
+  box-shadow: var(--box-shadow);
+  border-radius: var(--large-border-radius);
 }
