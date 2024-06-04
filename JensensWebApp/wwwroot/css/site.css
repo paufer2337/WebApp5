@@ -39,8 +39,10 @@ body {
   border-radius: var(--large-border-radius);
   box-shadow: var(--box-shadow);
   text-align: center;
+  font-size: x-large;
   padding: 5%;
 }
+
 
 .card>.card-body>.card-title {
   text-align: center;
@@ -65,7 +67,11 @@ a.card-link {
 }
 
 h1,
-
-label {
+label{
   color: var(--light-gray);
+}
+
+body > div > main > div > div > div:nth-child(6) > div > div > p:nth-child(4) > small
+{
+  color: black;
 }
