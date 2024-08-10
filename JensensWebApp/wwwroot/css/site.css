@@ -2,7 +2,7 @@
   --light-gray: #eeeeee;
   --middle-gray: #909090;
   --dark-gray: #383838;
-  --box-shadow: 2px 5px 10px -2px var(--light-gray);
+  --box-shadow: 2px 5px 10px var(--light-gray);
   --large-border-radius: 70px;
   --card-border: solid var(--light-gray) 2px;
 }
