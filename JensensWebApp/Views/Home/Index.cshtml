@@ -1,5 +1,5 @@
-﻿@model IList<JensensWebApp.Models.Article>
-
+﻿@using JensensWebApp.Models
+@model IList<JensensWebApp.Models.Article>
 @{
     ViewBag.Title = "Articles";
 
@@ -39,8 +39,47 @@
         </select>
 
         <button type="submit" class="btn btn-primary">Filter</button>
-    }
 
+        List<Article> articlesAsCSharp = new List<Article>();
+               
+        @foreach (var article in Model)
+        {
+            articlesAsCSharp.Add(article);
+        }
+
+   <div class="relevant-card">
+        <div class="relevant-card-body">
+            <h4>Idag</h4>
+            <h5 id="relevant-card-title">404</h5>
+            <p id="relevant-card-text">404</p>
+            <a href="404" id="relevant-card-link" target="_blank">404</a>      
+        </div>
+    </div>
+    <script>
+        var articlesAsJson = @Json.Serialize(articlesAsCSharp);
+              
+        function checkRelevance(dateToCheck) {
+            return Date() == Date(Date.parse(dateToCheck));
+        }
+
+        var relevantArticle = articlesAsJson.filter(checkRelevance)[0];
+
+        console.log(relevantArticle);
+        window.onload = function(){
+            document.getElementById("relevant-card-title").innerHTML = relevantArticle.title;
+            document.getElementById("relevant-card-text").innerHTML = relevantArticle.summary;
+            
+            let link = document.getElementById("relevant-card-link");
+            link.href = relevantArticle.link;
+            link.innerText = "Läs mer";
+
+            let unformatedTime = relevantArticle.published;
+            unformatedTime = unformatedTime.replace("T", " ");
+            formatedTime = unformatedTime.substring(0, 19);
+
+            document.getElementById("relevant-card-text").innerHTML += "<br/>" + formatedTime;
+        }
+        </script>
     <div class="row mt-4">
         @foreach (var article in Model)
         {
@@ -56,4 +95,4 @@
             </div>
         }
     </div>
-</div>
+}
