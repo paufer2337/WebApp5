@@ -40,6 +40,8 @@
 
         <button type="submit" class="btn btn-primary">Filter</button>
 
+        
+
         List<Article> articlesAsCSharp = new List<Article>();
                
         @foreach (var article in Model)
@@ -49,12 +51,22 @@
 
    <div class="relevant-card">
         <div class="relevant-card-body">
-            <h4>Idag</h4>
+            <h4>Relevant idag</h4>
             <h5 id="relevant-card-title">404</h5>
             <p id="relevant-card-text">404</p>
-            <a href="404" id="relevant-card-link" target="_blank">404</a>      
+            <a href="404" 
+               id="relevant-card-link" 
+               target="_blank">404</a>      
         </div>
     </div>
+
+     <div class="container">
+        <input id="searchbar" 
+               onkeyup="searchCards()" 
+               type="text" name="search" 
+               placeholder="Sök efter nyheter...">
+    </div>
+
     <script>
         var articlesAsJson = @Json.Serialize(articlesAsCSharp);
               
