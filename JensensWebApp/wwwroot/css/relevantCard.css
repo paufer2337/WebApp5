@@ -3,6 +3,7 @@
   border-radius: 25px;
   background-color: var(--middle-gray);
   padding: 1%;
+  margin: 2%;
 }
 
 #relevant-card-title {
@@ -22,6 +23,7 @@
     color: white;
     font-size: large;
     font-family: "Times New Roman", Times, serif;
+    margin-bottom: -0.1%;
 }
 
 #relevant-card-text:hover {
@@ -35,7 +37,6 @@
 
 #relevant-card-link {
   color: white;
-  padding: 6px 12px;
   font-size: large;
 }
 
@@ -60,6 +61,8 @@
 }
 
 .relevant-card,
-.card {
-  transition: all 0.3s;
+h2,
+a
+{
+      transition: all 0.3s;
 }

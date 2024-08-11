@@ -1,3 +1,8 @@
+:root
+{
+    --short-transition-time: 0.4s;
+}
+
 .switch {
     position: relative;
     display: inline-block;
@@ -19,8 +24,8 @@
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: var(--transition-time);
+    transition: var(--short-transition-time);
 }
 
 .slider:before {
@@ -31,8 +36,8 @@
     left: 4px;
     bottom: 4px;
     background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: var(--transition-time);
+    transition: var(--short-transition-time);
 }
 
 input:checked+.slider {

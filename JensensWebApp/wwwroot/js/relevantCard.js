@@ -21,6 +21,6 @@ function getRelevantArticle(articlesAsJson) {
     formatedTime = unformatedTime.substring(0, 19);
 
     document.getElementById("relevant-card-text").innerHTML +=
-      "<br/>" + formatedTime;
+      "<br/><br/>" + formatedTime;
   };
 }

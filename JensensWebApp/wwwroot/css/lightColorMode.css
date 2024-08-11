@@ -1,42 +1,40 @@
 :root {
-    --inverted-color: #111111;
-    --inverted-box-shadow: 2px 5px 10px var(--inverted-color);
+  --inverted-color: #111111;
+  --inverted-box-shadow: 2px 5px 10px var(--inverted-color);
+    --long-transition-time: 1s;
 }
 
 .light-color-mode {
-    h1,
-    label,
-    .card>.card-body>.card-title,
-    .card>.card-body>.card-text,
-    body>header>nav
-     {
-        filter: invert(100%);
-    }  
+  h1,
+  label,
+  .card > .card-body > .card-title,
+  .card > .card-body > .card-text,
+  body > header > nav {
+    filter: invert(100%);
+    transition: all var(--long-transition-time);
+  }
 
-    body
-    {
-        background-color: white;
-        transition: all 1s;
-    }
+  body {
+    background-color: white;
+    transition: all var(--long-transition-time);
+  }
 
-    .relevant-card
-    {
-        filter: saturate(50%);
-        transition: all 1s;
-    }
+  .relevant-card {
+    filter: saturate(50%);
+    transition: all var(--long-transition-time);
+  }
 
-    .card,
-    .relevant-card
-    {
-        border: solid var(--inverted-color) 2px;
-    }
+  .card,
+  .relevant-card {
+    border: solid var(--inverted-color) 2px;
+  }
 
-    .card:hover,
-    .relevant-card:hover {
-        box-shadow: var(--inverted-box-shadow);
-    }
-    
-    body>div>main>div>form>label.switch {
+  .card:hover,
+  .relevant-card:hover {
+    box-shadow: var(--inverted-box-shadow);
+  }
+
+  body > div > main > div > form > label.switch {
     filter: invert(0%) !important;
-    }
+  }
 }
