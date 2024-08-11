@@ -24,7 +24,7 @@ html {
 
 body {
   margin-bottom: 60px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   background-color: var(--dark-gray);
 }
 
@@ -41,25 +41,34 @@ body {
   text-align: center;
   font-size: x-large;
   padding: 5%;
+  h5
+  {
+    font-size: x-large;
+  }
 }
 
-.card>.card-body>.card-title:hover {
-  font-size: x-large;
-}
-
-.card>.card-body>.card-title {
+.card > .card-body > .card-title {
   text-align: center;
   font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
 }
 
 a.card-link:visited {
-  color: #551A8B;
+  color: var(--dark-gray);
 }
 
 a.card-link {
-  color: white;
+  color: var(--light-gray);
   padding: 6px 12px;
   font-size: 15px;
+}
+
+.card-text .text-muted {
+  color: black !important;
+}
+
+.card-text {
+  font-family: "Times New Roman", Times, serif;
 }
 
 .container-fluid {
@@ -72,9 +81,13 @@ a.card-link {
 
 h1,
 label,
-body>header>nav>div>div>ul {
+body > header > nav > div > div > ul {
   color: var(--light-gray);
   font-weight: bold;
+}
+
+h4 {
+  text-align: center;
 }
 
 /* Relevant card onwards*/
@@ -94,27 +107,34 @@ body>header>nav>div>div>ul {
   padding: 5%;
 }
 
-h4
-{
+#relevant-card-title {
   text-align: center;
-}
-.relevant-card>.relevent-card-body>#card-title:hover {
-  font-size: x-large;
-}
-
-.relevant-card>.relevant-card-body>#relevant-card-title {
-  text-align: center;
+  color: white;
   font-weight: bold;
 }
 
-a#relevant-card-link:visited {
-  color: #551A8B;
+#relevant-today-title {
+  text-align: center;
+  color: white;
+  font-weight: bold;
 }
 
-a#relevant-card-link {
+#relevant-card-text {
+  color: white;
+}
+
+#relevant-card-link:visited {
+  color: wheat;
+}
+
+#relevant-card-link {
   color: white;
   padding: 6px 12px;
   font-size: 15px;
+}
+
+#relevant-card-link:hover {
+  font-size: x-large;
 }
 
 .relevant-card {
@@ -130,4 +150,9 @@ a#relevant-card-link {
   text-align: center;
   font-size: x-large;
   padding: 5%;
+}
+
+.relevant-card,
+.card {
+  transition: all 0.3s;
 }

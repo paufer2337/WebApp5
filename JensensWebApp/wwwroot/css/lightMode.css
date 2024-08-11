@@ -1,0 +1,34 @@
+.light-mode {
+    h1,
+    label,
+    .card>.card-body>.card-title,
+    .card>.card-body>.card-text,
+    body>header>nav
+     {
+        filter: invert(100%);
+    }  
+
+    body
+    {
+        background-color: white;
+        transition: all 1s;
+    }
+
+    .relevant-card
+    {
+        filter: saturate(50%);
+        transition: all 1s;
+    }
+}
+
+.dark
+{
+
+            body {
+                transition: all 12s;
+            }
+        
+            .relevant-card {
+                transition: all 12s;
+            }
+}
