@@ -1,0 +1,64 @@
+.relevant-card {
+    border: var(--card-border);
+    border-radius: 25px;
+    background-color: var(--middle-gray);
+    padding: 1%;
+}
+.relevant-card:hover {
+    border: var(--card-border);
+    border-radius: var(--large-border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    font-size: x-large;
+    padding: 5%;
+}
+
+#relevant-card-title {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+#relevant-today-title {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+#relevant-card-text {
+    color: white;
+}
+
+#relevant-card-link:visited {
+    color: wheat;
+}
+
+#relevant-card-link {
+    color: white;
+    padding: 6px 12px;
+    font-size: 15px;
+}
+.relevant-card {
+    border: var(--card-border);
+    border-radius: 25px;
+    background-color: #36454f;
+}
+
+.relevant-card:hover {
+    border: var(--card-border);
+    border-radius: var(--large-border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    font-size: x-large;
+    padding: 5%;
+
+#relevant-card-link{
+        font-size: x-large;
+    }
+}
+
+.relevant-card,
+.card {
+    transition: all 0.3s;
+}

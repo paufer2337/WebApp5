@@ -1,0 +1,49 @@
+:root {
+  --card-border: solid var(--light-gray) 2px;
+  --box-shadow: 2px 5px 10px var(--light-gray);
+}
+
+.card {
+  border: var(--card-border);
+  border-radius: 25px;
+  background-color: var(--middle-gray);
+}
+
+.card:hover {
+  border: var(--card-border);
+  border-radius: var(--large-border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  font-size: x-large;
+  padding: 5%;
+
+  h5,
+  small,
+  a {
+    font-size: x-large;
+  }
+}
+
+.card > .card-body > .card-title {
+  text-align: center;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+}
+
+a.card-link:visited {
+  color: var(--dark-gray);
+}
+
+a.card-link {
+  color: var(--light-gray);
+  padding: 6px 12px;
+  font-size: 15px;
+}
+
+.card-text .text-muted {
+  color: black !important;
+}
+
+.card-text {
+  font-family: "Times New Roman", Times, serif;
+}
