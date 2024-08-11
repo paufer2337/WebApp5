@@ -1,7 +1,7 @@
 function selectColor() {
   let colorModeSelector = document.getElementById("color-mode-selector");
   colorModeSelector.addEventListener("click", () => {
-    document.documentElement.classList.toggle("light-mode");
+    document.documentElement.classList.toggle("light-color-mode");
 
     let colorModeDescriptor = document.getElementById("color-mode-descriptor");
 

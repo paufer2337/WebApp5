@@ -1,64 +1,65 @@
 .relevant-card {
-    border: var(--card-border);
-    border-radius: 25px;
-    background-color: var(--middle-gray);
-    padding: 1%;
-}
-.relevant-card:hover {
-    border: var(--card-border);
-    border-radius: var(--large-border-radius);
-    box-shadow: var(--box-shadow);
-    text-align: center;
-    font-size: x-large;
-    padding: 5%;
+  border: var(--card-border);
+  border-radius: 25px;
+  background-color: var(--middle-gray);
+  padding: 1%;
 }
 
 #relevant-card-title {
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    font-size: x-large;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: x-large;
 }
 
 #relevant-today-title {
-    text-align: center;
-    color: white;
-    font-weight: bold;
+  text-align: center;
+  color: white;
+  font-weight: bold;
 }
 
-#relevant-card-text {
+#relevant-card-text:not(:hover) {
     color: white;
+    font-size: large;
+    font-family: "Times New Roman", Times, serif;
+}
+
+#relevant-card-text:hover {
+  color: white;
+  font-size: x-large;
 }
 
 #relevant-card-link:visited {
-    color: wheat;
+  color: wheat;
 }
 
 #relevant-card-link {
-    color: white;
-    padding: 6px 12px;
-    font-size: 15px;
+  color: white;
+  padding: 6px 12px;
+  font-size: large;
 }
+
 .relevant-card {
-    border: var(--card-border);
-    border-radius: 25px;
-    background-color: #36454f;
+  border: var(--card-border);
+  border-radius: 25px;
+  background-color: #36454f;
 }
 
 .relevant-card:hover {
-    border: var(--card-border);
-    border-radius: var(--large-border-radius);
-    box-shadow: var(--box-shadow);
-    text-align: center;
-    font-size: x-large;
-    padding: 5%;
+  border: var(--card-border);
+  border-radius: var(--large-border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  font-size: x-large;
+  padding: 5%;
 
-#relevant-card-link{
-        font-size: x-large;
-    }
+  #relevant-card-text,
+  #relevant-card-link {
+    font-size: x-large;
+  }
 }
 
 .relevant-card,
 .card {
-    transition: all 0.3s;
+  transition: all 0.3s;
 }

@@ -16,12 +16,6 @@
   text-align: center;
   font-size: x-large;
   padding: 5%;
-
-  h5,
-  small,
-  a {
-    font-size: x-large;
-  }
 }
 
 .card > .card-body > .card-title {
