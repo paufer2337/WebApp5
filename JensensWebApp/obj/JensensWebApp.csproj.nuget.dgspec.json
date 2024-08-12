@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hanne\\OneDrive\\Skrivbord\\JENSEN\\HuvudProject\\JensenWebApplication\\JensensWebApp\\JensensWebApp.csproj": {}
+    "C:\\Users\\Elias\\source\\repos\\WebApp5\\JensensWebApp\\JensensWebApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hanne\\OneDrive\\Skrivbord\\JENSEN\\HuvudProject\\JensenWebApplication\\JensensWebApp\\JensensWebApp.csproj": {
+    "C:\\Users\\Elias\\source\\repos\\WebApp5\\JensensWebApp\\JensensWebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hanne\\OneDrive\\Skrivbord\\JENSEN\\HuvudProject\\JensenWebApplication\\JensensWebApp\\JensensWebApp.csproj",
+        "projectUniqueName": "C:\\Users\\Elias\\source\\repos\\WebApp5\\JensensWebApp\\JensensWebApp.csproj",
         "projectName": "JensensWebApp",
-        "projectPath": "C:\\Users\\Hanne\\OneDrive\\Skrivbord\\JENSEN\\HuvudProject\\JensenWebApplication\\JensensWebApp\\JensensWebApp.csproj",
-        "packagesPath": "C:\\Users\\Hanne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hanne\\OneDrive\\Skrivbord\\JENSEN\\HuvudProject\\JensenWebApplication\\JensensWebApp\\obj\\",
+        "projectPath": "C:\\Users\\Elias\\source\\repos\\WebApp5\\JensensWebApp\\JensensWebApp.csproj",
+        "packagesPath": "C:\\Users\\Elias\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Elias\\source\\repos\\WebApp5\\JensensWebApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Hanne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Elias\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,11 +37,22 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -58,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300-preview.24203.14\\RuntimeIdentifierGraph.json"
         }
       }
     }
