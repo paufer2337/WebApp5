@@ -4,25 +4,27 @@
     ViewBag.Title = "Artiklar";
 
     Dictionary<string, string> topicDisplayNames = new Dictionary<string, string>
-{
-    {"Halsa", "Hälsa"},
-    {"SamhalleKonflikter", "Samhälle och Konflikter"},
-    {"Miljo", "Miljö"},
-    {"VetenskapTeknik", "Vetenskap och Teknik"},
-    {"LivsstillFritt", "Livsstil och Fritid"},
-    {"Ekonomi", "Ekonomi"},
-    {"Religion", "Religion"},
-    {"Idrott", "Idrott"}
-};
-
+    {
+        {"Halsa", "Hälsa"},
+        {"SamhalleKonflikter", "Samhälle och Konflikter"},
+        {"Miljo", "Miljö"},
+        {"VetenskapTeknik", "Vetenskap och Teknik"},
+        {"LivsstillFritt", "Livsstil och Fritid"},
+        {"Ekonomi", "Ekonomi"},
+        {"Religion", "Religion"},
+        {"Idrott", "Idrott"}
+    };
 }
 
 <h1>Artiklar</h1>
 <div class="container">
     @using (Html.BeginForm("Index", "Home", FormMethod.Get))
-    {   
-        <label for="color-mode-selector" id="color-mode-descriptor">Mörkt läge</label>
-        <input id="color-mode-selector" type="checkbox"/>
+    {       
+        <label class="switch">
+            <input type="checkbox" id="color-mode-selector">
+            <span class="slider"></span>
+        </label>
+        <label id="color-mode-descriptor">Mörkt läge</label>
 
         <input id="searchBar" 
            onkeyup="searchCards()" 
@@ -47,52 +49,36 @@
 
         <button type="submit" class="btn btn-primary">Filtrera</button>
 
-        List<Article> articlesAsCSharp = new List<Article>();
-               
-        @foreach (var article in Model)
-        {
-            articlesAsCSharp.Add(article);
-        }
-
    <div class="relevant-card">
         <div class="relevant-card-body">
-            <h4 id="relevant-today-title">Relevant idag</h4>
-            <h5 id="relevant-card-title">404</h5>
+            <h2 id="relevant-today-title">Relevant idag</h2>
+            <h2 id="relevant-card-title">404</h2>
             <p id="relevant-card-text">404</p>
             <a href="404" 
                id="relevant-card-link" 
-               target="_blank">404</a>      
+               target="_self">404</a> 
+            <img id="relevant-card-image" src="">
+            <button id="image-button">Lägg till bild</button>    
         </div>
-    </div>
+    </div>     
+
+//https://www.migrationsverket.se/images/18.6f22e3491708b85db6e302b/1591710118257/Migrationsverket_logotyp_frizon_R%C3%96D_rgb.png
+
+    List<Article> articlesAsCSharp = new List<Article>();
+               
+    @foreach (var article in Model)
+    {
+        articlesAsCSharp.Add(article);
+    }
+
     <script>
         var articlesAsJson = @Json.Serialize(articlesAsCSharp);
-              
-        function checkRelevance(dateToCheck) {
-            return Date() == Date(Date.parse(dateToCheck));
-        }
+        getRelevantArticle(articlesAsJson);    
+    </script>
 
-        var relevantArticle = articlesAsJson.filter(checkRelevance)[0];
-
-        console.log(relevantArticle);
-        window.onload = function(){
-            document.getElementById("relevant-card-title").innerHTML = relevantArticle.title;
-            document.getElementById("relevant-card-text").innerHTML = relevantArticle.summary;
-            
-            let link = document.getElementById("relevant-card-link");
-            link.href = relevantArticle.link;
-            link.innerText = "Läs mer";
-
-            let unformatedTime = relevantArticle.published;
-            unformatedTime = unformatedTime.replace("T", " ");
-            formatedTime = unformatedTime.substring(0, 19);
-
-            document.getElementById("relevant-card-text").innerHTML += "<br/>" + formatedTime;
-        }
-        </script>
-
-        <script>
-            selectColor();
-        </script>
+    <script>
+        selectColor();
+    </script>
         
     <div class="row mt-4">
         @foreach (var article in Model)

@@ -1,9 +1,11 @@
 function selectColor() {
-  let colorModeSelector = document.getElementById("color-mode-selector");
+  const colorModeSelector = document.getElementById("color-mode-selector");
   colorModeSelector.addEventListener("click", () => {
     document.documentElement.classList.toggle("light-color-mode");
 
-    let colorModeDescriptor = document.getElementById("color-mode-descriptor");
+    const colorModeDescriptor = document.getElementById(
+      "color-mode-descriptor"
+    );
 
     let darkModeText = "Mörkt läge";
     let lightModeText = "Ljust läge";

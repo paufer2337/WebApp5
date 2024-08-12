@@ -64,7 +64,7 @@
 h2,
 a
 {
-      transition: all 1s;
+      transition: all var(--short-transition-time);
 }
 
 #relevant-card-image

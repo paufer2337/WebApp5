@@ -1,6 +1,7 @@
 :root {
   --card-border: solid var(--light-gray) 2px;
   --box-shadow: 2px 5px 10px var(--light-gray);
+  --short-transition-time: 500ms;
 }
 
 .card {
@@ -52,5 +53,5 @@ a.card-link {
 h5,
 a 
 {
-    transition: all 1s;
+    transition: all var(--short-transition-time);
 }
