@@ -1,6 +1,7 @@
 :root {
   --inverted-color: #111111;
   --inverted-box-shadow: 2px 5px 10px var(--inverted-color);
+  --long-transition-time: 2s;
 }
 
 .light-color-mode {
@@ -10,12 +11,12 @@
   .card > .card-body > .card-text,
   body > header > nav{
     filter: invert(100%);
-    transition: all var(--short-transition-time);
+    transition: all var(--long-transition-time);
   }
 
   body {
     background-color: white;
-    transition: all var(--short-transition-time);
+    transition: all var(--long-transition-time);
   }
 
 /*

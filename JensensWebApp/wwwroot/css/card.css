@@ -1,7 +1,7 @@
 :root {
   --card-border: solid var(--light-gray) 2px;
   --box-shadow: 2px 5px 10px var(--light-gray);
-  --short-transition-time: 500ms;
+  --short-transition-time: 200ms;
 }
 
 .card {

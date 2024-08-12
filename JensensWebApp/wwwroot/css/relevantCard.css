@@ -19,11 +19,23 @@
   font-weight: bold;
 }
 
-#relevant-card-text:not(:hover) {
+#relevant-card-text:not(:hover){
     color: white;
     font-size: large;
     font-family: "Times New Roman", Times, serif;
     margin-bottom: -0.1%;
+}
+
+#relevant-card-tags
+{
+  color: white;
+  font-size: small;
+  font-family: "Times New Roman", Times, serif;
+}
+
+#relevant-card-tags:hover {
+  font-size: large;
+  font-family: "Times New Roman", Times, serif;
 }
 
 #relevant-card-text:hover {
@@ -71,7 +83,8 @@ https://www.migrationsverket.se/images/18.6f22e3491708b85db6e302b/1591710118257/
 
 .relevant-card,
 h2,
-a
+a,
+#relevant-card-tags
 {
       transition: all var(--short-transition-time);
 }

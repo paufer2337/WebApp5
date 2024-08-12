@@ -10,6 +10,7 @@ function getRelevantArticle(articlesAsJson) {
   window.onload = function () {
     setTitle(relevantArticle.title);
     setSummary(relevantArticle.summary);
+    setTags(relevantArticle.summary);
     setLink(relevantArticle.link);
     setPublishedTime(relevantArticle.published);
     setupImageButton();
@@ -26,6 +27,16 @@ function setTitle(title) {
 
 function setSummary(summary) {
   document.getElementById("relevant-card-text").innerHTML = summary;
+}
+function setTags(summary) {
+  const tagText = document.getElementById("relevant-card-tags");
+  var tagsToCheckFor = ["SD", "Regering", "Migrationsverket"];
+
+  tagsToCheckFor.forEach((element) => {
+    if (summary.includes(element)) {
+      tagText.textContent += element + ", ";
+    }
+  });
 }
 
 function setLink(linkUrl) {

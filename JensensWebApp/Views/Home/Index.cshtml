@@ -49,28 +49,36 @@
 
         <button type="submit" class="btn btn-primary">Filtrera</button>
 
-   <div class="relevant-card">
-        <div class="relevant-card-body">
-            <h2 id="relevant-today-title">Relevant idag</h2>
-            <h2 id="relevant-card-title">404</h2>
-            <p id="relevant-card-text">404</p>
-            <a href="404" 
-               id="relevant-card-link" 
-               target="_self">404</a> 
-            <img id="relevant-card-image" src="">
-            <button id="add-image-button" class="btn btn-primary">Lägg till bild</button>    
+        <div class="relevant-card">
+            <div class="relevant-card-body">
+                <h2 id="relevant-today-title">Relevant idag</h2>
+                <h2 id="relevant-card-title">404</h2>
+                <p id="relevant-card-text">404</p>
+                <a href="404"
+                    id="relevant-card-link"
+                    target="_self">404
+                </a>         
+                <p id="relevant-card-tags">Nyckelord: </p>
+                <img
+                    id="relevant-card-image"
+                    src="" />
+                <button
+                    id="add-image-button"
+                    class="btn btn-primary">
+                    Lägg till bild
+                </button>
+            </div>
         </div>
-    </div>     
 
-    List<Article> articlesAsCSharp = new List<Article>();
+    List<Article> articlesAsCSharpList = new List<Article>();
                
     @foreach (var article in Model)
     {
-        articlesAsCSharp.Add(article);
+        articlesAsCSharpList.Add(article);
     }
 
     <script>
-        var articlesAsJson = @Json.Serialize(articlesAsCSharp);
+        var articlesAsJson = @Json.Serialize(articlesAsCSharpList);
         getRelevantArticle(articlesAsJson);    
     </script>
 
