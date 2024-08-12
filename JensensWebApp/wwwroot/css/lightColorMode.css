@@ -9,7 +9,7 @@
   label,
   .card > .card-body > .card-title,
   .card > .card-body > .card-text,
-  body > header > nav {
+  body > header > nav{
     filter: invert(100%);
     transition: all var(--long-transition-time);
   }
@@ -19,7 +19,8 @@
     transition: all var(--long-transition-time);
   }
 
-  .relevant-card {
+  .relevant-card
+  .relevant-card>.card-body:not(#relevant-card-image) {
     filter: saturate(50%);
     transition: all var(--long-transition-time);
   }
@@ -34,7 +35,8 @@
     box-shadow: var(--inverted-box-shadow);
   }
 
-  body > div > main > div > form > label.switch {
-    filter: invert(0%) !important;
+  body > div > main > div > form > label.switch
+ {
+    filter: saturate(100%) !important;
   }
 }
