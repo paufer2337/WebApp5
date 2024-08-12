@@ -46,6 +46,12 @@
   background-color: #36454f;
 }
 
+#relevant-card-image {
+  width: 55%;
+  display: flex;
+  margin: 10px auto;
+}
+
 .relevant-card:hover {
   border: var(--card-border);
   border-radius: var(--large-border-radius);
@@ -59,17 +65,13 @@
     font-size: x-large;
   }
 }
+/*
+https://www.migrationsverket.se/images/18.6f22e3491708b85db6e302b/1591710118257/Migrationsverket_logotyp_frizon_R%C3%96D_rgb.png
+*/
 
 .relevant-card,
 h2,
 a
 {
       transition: all var(--short-transition-time);
-}
-
-#relevant-card-image
-{
-    width: 55%;
-    display: flex;
-    margin: 10px auto;
 }

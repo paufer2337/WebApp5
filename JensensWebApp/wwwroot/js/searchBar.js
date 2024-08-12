@@ -15,7 +15,6 @@ function searchCards() {
 /* The principles of these functions are not opposite of each other,
 i.e identical except the usage of subtrahends and addends, to enhance visual effects.
 */
-
 function fade(elementToFade) {
   var currentOpacity = 1;
   var opacityThreshold = 0;
@@ -35,7 +34,7 @@ function fade(elementToFade) {
 function unfade(elementToUnFade) {
   var currentOpacity = 0.1;
   var opacityThreshold = 1;
-  
+
   elementToUnFade.style.display = "block";
   var timer = setInterval(function () {
     if (currentOpacity >= opacityThreshold) {

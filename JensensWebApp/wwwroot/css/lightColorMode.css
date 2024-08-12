@@ -1,7 +1,6 @@
 :root {
   --inverted-color: #111111;
   --inverted-box-shadow: 2px 5px 10px var(--inverted-color);
-  --color-mode-change-transition: 2s;
 }
 
 .light-color-mode {
@@ -11,19 +10,18 @@
   .card > .card-body > .card-text,
   body > header > nav{
     filter: invert(100%);
-    transition: all var(--color-mode-change-transition);
+    transition: all var(--short-transition-time);
   }
 
   body {
     background-color: white;
-    transition: all var(--color-mode-change-transition);
+    transition: all var(--short-transition-time);
   }
 
-  .relevant-card
-  .relevant-card>.card-body:not(#relevant-card-image) {
-    filter: saturate(50%);
-    transition: all var(--color-mode-change-transition);
-  }
+/*
+URL for testing:
+https://www.migrationsverket.se/images/18.6f22e3491708b85db6e302b/1591710118257/Migrationsverket_logotyp_frizon_R%C3%96D_rgb.png
+*/
 
   .card,
   .relevant-card {
