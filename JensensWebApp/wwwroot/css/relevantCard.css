@@ -6,6 +6,20 @@
   margin: 2%;
 }
 
+.relevant-card:hover {
+  border: var(--card-border);
+  border-radius: var(--large-border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  font-size: x-large;
+  padding: 5%;
+
+  #relevant-card-text,
+  #relevant-card-link {
+    font-size: x-large;
+  }
+}
+
 #relevant-card-title {
   text-align: center;
   color: white;
@@ -24,18 +38,6 @@
     font-size: large;
     font-family: "Times New Roman", Times, serif;
     margin-bottom: -0.1%;
-}
-
-#relevant-card-tags
-{
-  color: white;
-  font-size: small;
-  font-family: "Times New Roman", Times, serif;
-}
-
-#relevant-card-tags:hover {
-  font-size: large;
-  font-family: "Times New Roman", Times, serif;
 }
 
 #relevant-card-text:hover {
@@ -64,19 +66,6 @@
   margin: 10px auto;
 }
 
-.relevant-card:hover {
-  border: var(--card-border);
-  border-radius: var(--large-border-radius);
-  box-shadow: var(--box-shadow);
-  text-align: center;
-  font-size: x-large;
-  padding: 5%;
-
-  #relevant-card-text,
-  #relevant-card-link {
-    font-size: x-large;
-  }
-}
 /*
 https://www.migrationsverket.se/images/18.6f22e3491708b85db6e302b/1591710118257/Migrationsverket_logotyp_frizon_R%C3%96D_rgb.png
 */
@@ -87,4 +76,15 @@ a,
 #relevant-card-tags
 {
       transition: all var(--short-transition-time);
+}
+
+#relevant-card-tags {
+  color: white;
+  font-size: small;
+  font-family: "Times New Roman", Times, serif;
+}
+
+#relevant-card-tags:hover {
+  font-size: large;
+  font-family: "Times New Roman", Times, serif;
 }
