@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\lightColorMode.css"
     },
     {
+      "Id": "C:\\Users\\Elias\\source\\repos\\WebApp5\\JensensWebApp\\wwwroot\\css\\login-button.css",
+      "PackagePath": "staticwebassets\\css\\login-button.css"
+    },
+    {
       "Id": "C:\\Users\\Elias\\source\\repos\\WebApp5\\JensensWebApp\\wwwroot\\css\\relevantCard.css",
       "PackagePath": "staticwebassets\\css\\relevantCard.css"
     },
@@ -33,8 +37,20 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Elias\\source\\repos\\WebApp5\\JensensWebApp\\wwwroot\\js\\card.js",
+      "PackagePath": "staticwebassets\\js\\card.js"
+    },
+    {
       "Id": "C:\\Users\\Elias\\source\\repos\\WebApp5\\JensensWebApp\\wwwroot\\js\\colorModeSelector.js",
       "PackagePath": "staticwebassets\\js\\colorModeSelector.js"
+    },
+    {
+      "Id": "C:\\Users\\Elias\\source\\repos\\WebApp5\\JensensWebApp\\wwwroot\\js\\imageButton.js",
+      "PackagePath": "staticwebassets\\js\\imageButton.js"
+    },
+    {
+      "Id": "C:\\Users\\Elias\\source\\repos\\WebApp5\\JensensWebApp\\wwwroot\\js\\login.js",
+      "PackagePath": "staticwebassets\\js\\login.js"
     },
     {
       "Id": "C:\\Users\\Elias\\source\\repos\\WebApp5\\JensensWebApp\\wwwroot\\js\\relevantCard.js",
@@ -47,6 +63,10 @@
     {
       "Id": "C:\\Users\\Elias\\source\\repos\\WebApp5\\JensensWebApp\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\Elias\\source\\repos\\WebApp5\\JensensWebApp\\wwwroot\\js\\tag.js",
+      "PackagePath": "staticwebassets\\js\\tag.js"
     },
     {
       "Id": "C:\\Users\\Elias\\source\\repos\\WebApp5\\JensensWebApp\\wwwroot\\lib\\bootstrap\\LICENSE",

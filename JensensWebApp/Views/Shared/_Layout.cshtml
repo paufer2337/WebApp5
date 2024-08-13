@@ -16,13 +16,18 @@
 
     <link rel="stylesheet" href="~/css/colorModeToggle.css" />
     <link rel="stylesheet" href="~/css/lightColorMode.css" />
+    
+    <link rel="stylesheet" href="~/css/login-button.css" />
 
     <script src="~/js/relevantCard.js"></script>
     <script src="~/js/card.js"></script>
     <script src="~/js/tag.js"></script>
+    <script src="~/js/imageButton.js"></script>
 
     <script src="~/js/searchBar.js"></script>
     <script src="~/js/colorModeSelector.js"></script>
+
+    <script src="~/js/login.js"></script>
 </head>
 <body>
     <header>
@@ -42,6 +47,12 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home"
                                 asp-action="Privacy">Sekretesspolicy</a>
                         </li>
+                        <button id="login-button" class="btn btn-primary">Logga in</button> 
+                        <label class="switch">
+                            <input type="checkbox" id="color-mode-selector">
+                            <span class="slider"></span>
+                        </label>
+                        <label id="color-mode-descriptor">Mörkt läge</label>
                     </ul>
                 </div>
             </div>

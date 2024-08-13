@@ -1,5 +1,0 @@
-C:\Users\Elias\source\repos\WebApp5\JensensWebApp\bin\Release\net6.0\win-x64\publish\appsettings.Development.json
-C:\Users\Elias\source\repos\WebApp5\JensensWebApp\bin\Release\net6.0\win-x64\publish\appsettings.json
-C:\Users\Elias\source\repos\WebApp5\JensensWebApp\bin\Release\net6.0\win-x64\publish\JensensWebApp.pdb
-C:\Users\Elias\source\repos\WebApp5\JensensWebApp\bin\Release\net6.0\win-x64\publish\aspnetcorev2_inprocess.dll
-C:\Users\Elias\source\repos\WebApp5\JensensWebApp\bin\Release\net6.0\win-x64\publish\JensensWebApp.exe

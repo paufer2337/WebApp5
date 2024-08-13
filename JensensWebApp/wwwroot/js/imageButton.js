@@ -1,6 +1,7 @@
 function setupImageButton(cardImageId, imageButtonId) {
   const cardImage = document.getElementById(cardImageId);
   const addImageButton = document.getElementById(imageButtonId);
+  addImageButton.style.display = "none";
   console.log("Image ID: " + cardImage.id);
   console.log("Button ID: " + addImageButton.id);
 

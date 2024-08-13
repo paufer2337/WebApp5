@@ -10,7 +10,7 @@
   .card > .card-body > .card-title,
   .card > .card-body > .card-text,
   .card-tags,
-  body > header > nav{
+  body>header>nav>div>div>ul>li{
     filter: invert(100%);
     transition: all var(--long-transition-time);
   }
@@ -34,9 +34,9 @@ https://www.migrationsverket.se/images/18.6f22e3491708b85db6e302b/1591710118257/
   .relevant-card:hover {
     box-shadow: var(--inverted-box-shadow);
   }
-
-  body > div > main > div > form > label.switch
+ 
+body>header>nav>div>div>ul>label.switch
  {
-    filter: invert(0%);
+    filter: none;
   }
 }

@@ -88,3 +88,8 @@ a,
   font-size: large;
   font-family: "Times New Roman", Times, serif;
 }
+
+#add-image-button
+{
+  display: none;
+}

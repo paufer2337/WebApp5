@@ -19,13 +19,7 @@
 <h1>Artiklar</h1>
 <div class="container">
     @using (Html.BeginForm("Index", "Home", FormMethod.Get))
-    {       
-        <label class="switch">
-            <input type="checkbox" id="color-mode-selector">
-            <span class="slider"></span>
-        </label>
-        <label id="color-mode-descriptor">Mörkt läge</label>
-
+    {
         <input id="searchBar" 
            onkeyup="searchCards()" 
            type="text" name="search" 
@@ -101,7 +95,10 @@
             </div>
         }  
     </div>
+        <script>
+            initializeLogin();
+        </script>
 <script>
-    addTagsToNormalCards();
+    addElementsToNormalCards();
 </script>
 }
