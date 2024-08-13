@@ -37,6 +37,6 @@ https://www.migrationsverket.se/images/18.6f22e3491708b85db6e302b/1591710118257/
 
   body > div > main > div > form > label.switch
  {
-    filter: saturate(100%) !important;
+    filter: invert(0%);
   }
 }
