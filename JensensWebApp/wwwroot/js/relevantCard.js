@@ -16,7 +16,7 @@ function getRelevantArticle(articlesAsJson) {
     );
     setLink(relevantArticle.link);
     setPublishedTime(relevantArticle.published);
-    setupImageButton();
+    setupImageButton("relevant-card-image", "add-image-button");
   };
 }
 
@@ -24,7 +24,7 @@ function findRelevantArticle(articlesAsJson) {
   return articlesAsJson.filter(checkRelevance)[0];
 }
 
-function setTitle(title) {
+function setTitle(title) {  
   document.getElementById("relevant-card-title").innerHTML = title;
 }
 
@@ -44,31 +44,6 @@ function setPublishedTime(publishedTime) {
 
   const relevantCardText = document.getElementById("relevant-card-text");
   relevantCardText.innerHTML += "<br/><br/>" + formattedTime;
-}
-
-function setupImageButton() {
-  const relevantCardImage = document.getElementById("relevant-card-image");
-  const addImageButton = document.getElementById("add-image-button");
-
-  addImageButton.addEventListener("click", (event) => {
-    // Used to ensure the image does not disappear.
-    event.preventDefault();
-
-    let urlDialog = prompt("Ange URL till önskad bild");
-
-    console.log("User input URL:", urlDialog);
-
-    if (urlDialog) {
-      console.log("Image source set to:", urlDialog);
-      relevantCardImage.src = urlDialog;
-      relevantCardImage.style.display = "block";
-
-      addImageButton.textContent = "Byt bild.";
-    } else {
-      console.log("No URL provided by the user.");
-      relevantCardImage.style.display = "none";
-    }
-  });
 }
 
 /*

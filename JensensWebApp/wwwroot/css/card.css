@@ -56,3 +56,9 @@ a
 {
   font-size: small;
 }
+
+img {
+  width: 55%;
+  display: flex;
+  margin: 10px auto;
+}

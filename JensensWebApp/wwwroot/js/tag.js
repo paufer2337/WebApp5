@@ -17,8 +17,7 @@ function setTags(summary, tagElement) {
     summary = summary.toLowerCase();
     let temporaryElement = currentTag;
     if (summary.includes(temporaryElement.toLowerCase())) {
-      console.log("Summary: " + summary + " || Tag: " + currentTag);
-
+      //console.log("Summary: " + summary + " || Tag: " + currentTag);
       foundTags[index] = currentTag;
     }
   });
@@ -27,7 +26,6 @@ function setTags(summary, tagElement) {
     tagElement.textContent += currentTag;
     if (index < foundTags.length - 1) {
       tagElement.textContent += ", ";
-
     }
   });
 }
