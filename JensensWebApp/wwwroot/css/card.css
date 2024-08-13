@@ -39,19 +39,20 @@ a.card-link {
   color: var(--light-gray);
   padding: 6px 12px;
 }
-
-.card-text .text-muted {
-  color: black !important;
-}
-
 .card-text {
   font-family: "Times New Roman", Times, serif;
 }
 
 .card,
 .card-text,
+.card-publish-text,
 h5,
 a 
 {
     transition: all var(--short-transition-time);
+}
+
+.card-tags
+{
+  font-size: small;
 }

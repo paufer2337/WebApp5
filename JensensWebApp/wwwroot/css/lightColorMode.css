@@ -9,6 +9,7 @@
   label,
   .card > .card-body > .card-title,
   .card > .card-body > .card-text,
+  .card-tags,
   body > header > nav{
     filter: invert(100%);
     transition: all var(--long-transition-time);
