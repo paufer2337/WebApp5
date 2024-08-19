@@ -1,10 +1,10 @@
-#navigation-bar>nav {
+#navigation-bar > nav {
   overflow: hidden;
-  background-color: #333;
 }
 
 a {
-  color: #0077cc;display: block;
+  color: #0077cc;
+  display: block;
 }
 
 ul {
@@ -13,14 +13,9 @@ ul {
   justify-content: center;
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
 .nav-item {
   margin: 0 20px;
+  line-height: 30px;
 }
 
 .btn-primary {
@@ -38,4 +33,15 @@ ul {
 
 .box-shadow {
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+}
+
+
+.light-theme-header
+{
+  background-color: var(--light-gray);
+}
+
+.dark-theme-header
+{
+  background-color: var(--dark-gray);
 }

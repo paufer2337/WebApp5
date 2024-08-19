@@ -4,18 +4,29 @@
 
 .color-mode-selector-container {
   position: relative;
-  display: inline-block;
   width: 60px;
   height: 34px;
+  gap: 70%;
+
   margin-right: 1%;
   margin-left: 1%;
   margin-top: 0.3%;
+
+  display: flex;
+  align-items: center;
+}
+
+#color-mode-descriptor {
+  width: 127%;
+  padding-left: 40%;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .color-mode-selector-container input {
   opacity: 0;
   width: 0;
-  height: 0;
+  height: 0;  
 }
 
 .slider {
@@ -52,15 +63,8 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-#color-mode-descriptor {
-  margin-top: 1%;
-  width: 127%;
-  padding-left: 130%;
-  display: inline-block
-}
-
 .dark-theme-color-mode-descriptor {
-color: var(--light-gray);
+  color: var(--light-gray);
 }
 
 .light-theme-color-mode-descriptor {

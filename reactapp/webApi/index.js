@@ -1,4 +1,5 @@
 const express = require("express");
+
 const cors = require("cors");
 const app = express();
 const port = 3000;
@@ -12,7 +13,7 @@ const articles = [
     summary:
       "▸ Regeringen och SD har ännu inte hittat någon ersättare för Migrationsverkets avgående generaldirektör Mikael Ribbenvik.",
     link: "https://www.aftonbladet.se/nyheter/a/8JWWL2/inte-klart-med-ersattare-for-ribbenvik",
-    published: new Date(Date.now() - 86400000),
+    published: new Date(Date.now()),
     topic: ["SamhalleKonflikter"],
   },
   {

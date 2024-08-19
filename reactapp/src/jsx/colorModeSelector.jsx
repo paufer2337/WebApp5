@@ -1,7 +1,7 @@
 import "../css/colorModeSelector.css";
 import React, { useState, useEffect, useContext } from "react";
 
-import ThemeContext from "./ThemeContext.jsx"
+import ThemeContext from "./ThemeContext.jsx";
 
 const useTheme = () => {
   const { toggleTheme } = useContext(ThemeContext);
@@ -33,7 +33,7 @@ function ColorModeSelector() {
   const toggleColorModeCheck = () => {
     setIsChecked((prevChecked) => {
       const newChecked = !prevChecked;
-      handleToggleTheme(); 
+      handleToggleTheme();
       return newChecked;
     });
   };

@@ -14,7 +14,6 @@ export const ThemeProvider = ({ children }) => {
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";  
-       console.log("Current theme: " + newTheme);
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);     
   };

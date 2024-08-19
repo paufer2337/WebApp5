@@ -1,22 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useContext } from "react";
-
+import React, { useEffect, useState, useContext } from "react";
 import "../css/card.css";
+import ThemeContext from "./ThemeContext";
 
-import ThemeContext from "./ThemeContext.jsx";
+import { getTags } from "./tags.js";
 
-function convertTime(publishedTime) {
+const convertTime = (publishedTime) => {
   let localDate = new Date(publishedTime).toLocaleDateString();
   let localTime = new Date(publishedTime).toLocaleTimeString();
-
-  let localDateTime = localDate + " " + localTime;
-  return localDateTime;
+  return `${localDate} ${localTime}`;
 }
 
-const ArticleList = () => {
+const ArticleList = ({ updateArticles }) => {
   const [articles, setArticles] = useState([]);
   const [sortBy, setSortBy] = useState("newest");
-
   const [loading, setLoading] = useState(false);
 
   const fetchArticles = (sortOption) => {
@@ -25,6 +21,7 @@ const ArticleList = () => {
       .then((response) => response.json())
       .then((data) => {
         setArticles(data);
+        updateArticles(data); // Call function passed from parent
         setLoading(false);
       })
       .catch((error) => {
@@ -66,16 +63,21 @@ const ArticleList = () => {
             {articles.map((article) => (
               <div
                 key={article.id || article.title}
-                className={`card ${theme === "dark" ? "dark-theme-card" : "light-theme-card"}`}>
+                className={`card ${
+                  theme === "dark" ? "dark-theme-card" : "light-theme-card"
+                }`}>
                 <div className="card-body">
                   <h5 className="card-title">{article.title}</h5>
                   <p className="card-text">{article.summary}</p>
                   <a
                     href={article.link}
                     className="card-link"
-                    target="_blank">
+                    target="_blank"
+                    rel="noopener noreferrer">
                     Läs mer
                   </a>
+                  <p>Nyckelord: {getTags(article.summary)}
+                  </p>
                   <p className="card-publish-text">
                     {convertTime(article.published)}
                   </p>

@@ -1,11 +1,20 @@
 import "../css/header.css";
 
+import React, { useContext } from "react";
+
+import ThemeContext from "./ThemeContext";
 import ColorModeSelector from "./colorModeSelector.jsx";
+import LoginButton from "./loginButton.jsx";
 
 function Header() {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <header id="navigation-bar">
-      <nav className="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+      <nav
+        className={`nav ${
+          theme === "dark" ? "dark-theme-header" : "light-theme-header"
+        }`}>
         <ul className="navbar-nav flex-grow-1">
           <li className="nav-item">
             <a
@@ -22,14 +31,10 @@ function Header() {
             </a>
           </li>
           <li className="nav-item">
-            <button
-              id="login-button"
-              className="btn btn-primary">
-              Logga in
-            </button>
+       <LoginButton></LoginButton>
           </li>
           <li className="nav-item">
-           <ColorModeSelector></ColorModeSelector>
+            <ColorModeSelector></ColorModeSelector>
           </li>
         </ul>
       </nav>
