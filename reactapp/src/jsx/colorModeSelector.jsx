@@ -1,7 +1,7 @@
 import "../css/colorModeSelector.css";
 import React, { useState, useEffect, useContext } from "react";
 
-import ThemeContext from "./ThemeContext.jsx";
+import ThemeContext from "./ThemeContext.jsx"
 
 const useTheme = () => {
   const { toggleTheme } = useContext(ThemeContext);
@@ -18,7 +18,7 @@ const getInitialState = () => {
   return savedState === "true" ? true : false;
 };
 
-const useSaveStateToLocalStorage = (isChecked) => {
+const saveStateToLocalStorage = (isChecked) => {
   useEffect(() => {
     localStorage.setItem("isChecked", isChecked);
   }, [isChecked]);
@@ -28,12 +28,12 @@ function ColorModeSelector() {
   const [isChecked, setIsChecked] = useState(getInitialState);
   const handleToggleTheme = useTheme();
 
-  useSaveStateToLocalStorage(isChecked);
+  saveStateToLocalStorage(isChecked);
 
-  const toggleColorModeCheck = () => {
+  const toggleColorMode = () => {
     setIsChecked((prevChecked) => {
       const newChecked = !prevChecked;
-      handleToggleTheme();
+      handleToggleTheme(); 
       return newChecked;
     });
   };
@@ -41,24 +41,25 @@ function ColorModeSelector() {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <label className="color-mode-selector-container">
-      <input
-        type="checkbox"
-        id="color-mode-selector"
-        checked={isChecked}
-        onChange={toggleColorModeCheck}
-      />
-      <span className="slider"></span>
-      <label
-        id="color-mode-descriptor"
-        className={`color-mode-descriptor ${
-          theme === "dark"
-            ? "dark-theme-color-mode-descriptor"
-            : "light-theme-color-mode-descriptor"
-        }`}>
-        {isChecked ? "Mörkt läge" : "Ljust läge"}
-      </label>
-    </label>
+   <label className="color-mode-selector-container">
+  <input
+    type="checkbox"
+    id="color-mode-selector"
+    checked={isChecked}
+    onChange={toggleColorMode}
+  />
+  <span className="slider"></span>
+  <label
+    id="color-mode-descriptor"
+    className={`color-mode-descriptor ${
+      theme === "dark"
+        ? "dark-theme-color-mode-descriptor"
+        : "light-theme-color-mode-descriptor"
+    }`}
+  >
+    {isChecked ? "Mörkt läge" : "Ljust läge"}
+  </label>
+</label>
   );
 }
 

@@ -35,13 +35,22 @@ ul {
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
 }
 
+.dark-theme-header
+{
+  background-color: var(--dark-gray);
+}
 
 .light-theme-header
 {
   background-color: var(--light-gray);
 }
 
-.dark-theme-header
+.dark-theme-list
 {
-  background-color: var(--dark-gray);
+  background-color: black;
+}
+
+.light-theme-list
+{
+  background-color: white;
 }

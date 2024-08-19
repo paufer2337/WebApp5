@@ -15,7 +15,10 @@ function Header() {
         className={`nav ${
           theme === "dark" ? "dark-theme-header" : "light-theme-header"
         }`}>
-        <ul className="navbar-nav flex-grow-1">
+        <ul
+          className={`ul ${
+            theme === "dark" ? "dark-theme-list" : "light-theme-list"
+          }`}>
           <li className="nav-item">
             <a
               className="nav-link text-dark"
@@ -31,7 +34,7 @@ function Header() {
             </a>
           </li>
           <li className="nav-item">
-       <LoginButton></LoginButton>
+            <LoginButton></LoginButton>
           </li>
           <li className="nav-item">
             <ColorModeSelector></ColorModeSelector>

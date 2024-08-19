@@ -7,7 +7,7 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
+    if (savedTheme) {    
       setTheme(savedTheme);
     }
   }, []);

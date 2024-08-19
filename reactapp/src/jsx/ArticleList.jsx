@@ -76,11 +76,14 @@ const ArticleList = ({ updateArticles }) => {
                     rel="noopener noreferrer">
                     Läs mer
                   </a>
-                  <p>Nyckelord: {getTags(article.summary)}
-                  </p>
+                  <p>Nyckelord: {getTags(article.summary)}</p>
                   <p className="card-publish-text">
                     {convertTime(article.published)}
                   </p>
+                  <button
+                    className="btn btn-primary">
+                    Lägg till bild
+                  </button>
                 </div>
               </div>
             ))}
