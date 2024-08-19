@@ -41,24 +41,6 @@ const ArticleList = () => {
 
   const { theme } = useContext(ThemeContext);
 
-  const cardColorModes = {
-
-    cardBorderDarkColorMode: window
-      .getComputedStyle(document.documentElement)
-      .getPropertyValue("--light-gray"),
-    cardBorderLightColorMode: window
-      .getComputedStyle(document.documentElement)
-      .getPropertyValue("--dark-gray"),
-
-    cardBoxShadowDarkColorMode: window
-      .getComputedStyle(document.documentElement)
-      .getPropertyValue("--box-shadow"),
-
-    cardBoxShadowLightColorMode: window
-      .getComputedStyle(document.documentElement)
-      .getPropertyValue("--dark-gray"),
-  };
-
   return (
     <div>
       <div>
