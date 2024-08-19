@@ -2,7 +2,8 @@
   --card-border-dark-mode: solid var(--light-gray) 2px;
   --card-border-light-mode: solid var(--dark-gray) 2px;
   --box-shadow-dark-mode: 2px 5px 10px var(--light-gray);
-  --box-shadow-light-mode: 2px 5px 10px var(--dark-gray);
+  --box-shadow-light-mode: 2px 5px 10px var(--inverted-light-gray);
+  
   --short-transition-time: 200ms;
 }
 
