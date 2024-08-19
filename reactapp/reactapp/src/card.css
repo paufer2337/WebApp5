@@ -1,0 +1,89 @@
+:root {
+  --card-border-dark-mode: solid var(--light-gray) 2px;
+  --card-border-light-mode: solid var(--dark-gray) 2px;
+  --box-shadow-dark-mode: 2px 5px 10px var(--light-gray);
+  --box-shadow-light-mode: 2px 5px 10px var(--dark-gray);
+  --short-transition-time: 200ms;
+}
+
+.card {
+  border: var(--card-border);
+  border-radius: 25px;
+  width: 30%;
+  height: 50%;
+  display: inline-block;
+  margin: 0.5%;
+}
+
+.card:hover {
+  border: var(--card-border);
+  border-radius: var(--large-border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  font-size: x-large;
+  padding: 5%;
+
+  h5,
+  a {
+    font-size: x-large;
+  }
+}
+
+.card > .card-body > .card-title {
+  text-align: center;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+}
+
+a.card-link:visited {
+  color: var(--dark-gray);
+}
+
+a.card-link {
+  color: var(--light-gray);
+  padding: 6px 12px;
+}
+
+.card-text {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.card,
+.card-text,
+.card-publish-text,
+h5,
+a {
+  transition: all var(--short-transition-time);
+}
+
+.card-tags {
+  font-size: small;
+}
+
+img {
+  width: 55%;
+  display: flex;
+  margin: 10px auto;
+}
+
+.dark-theme-card {
+  color: #000000;
+  border: var(--card-border);
+  background: var(--inverted-middle-gray);
+  box-shadow: var(--box-shadow-dark-mode);
+}
+
+.dark-theme-card:hover {
+
+}
+
+.light-theme-card {
+  color: var(--light-gray);
+  border: var(--card-border);
+  background: var(--middle-gray);
+  box-shadow: var(--box-shadow-light-mode);
+}
+
+.light-theme-card:hover {
+
+}

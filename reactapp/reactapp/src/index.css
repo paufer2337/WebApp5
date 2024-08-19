@@ -1,0 +1,51 @@
+:root {
+  --light-gray: #eeeeee;
+  --middle-gray: #909090;
+  --dark-gray: #383838;
+
+  --inverted-light-gray: #111111;
+  --inverted-middle-gray:#6f6f6f;
+  --inverted-dark-gray:#ffffff;
+  
+  --large-border-radius: 70px;
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  font-family: "Times New Roman", Times, serif;
+  background-color: var(--dark-gray);
+}
+
+.container-fluid {
+  background-color: var(--middle-gray);
+}
+
+.form-select {
+  border-radius: var(--large-border-radius);
+}
+
+h1,
+label,
+body>header>nav>div>div>ul {
+  color: var(--light-gray);
+  font-weight: bold;
+}
+
+h4 {
+  text-align: center;
+}
