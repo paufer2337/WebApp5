@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "./card.css";
 import { useContext } from "react";
-import ThemeContext from "./ThemeContext";
+
+import "../css/card.css";
+
+import ThemeContext from "./ThemeContext.jsx";
 
 function convertTime(publishedTime) {
   let localDate = new Date(publishedTime).toLocaleDateString();

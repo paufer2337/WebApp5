@@ -1,4 +1,4 @@
-import "./colorModeSelector.css";
+import "../css/colorModeSelector.css";
 import React, { useState, useEffect, useContext } from "react";
 
 import ThemeContext from "./ThemeContext.jsx"

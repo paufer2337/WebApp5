@@ -1,4 +1,4 @@
-import "./searchBar.css";
+import "../css/searchBar.css";
 
 function searchCards() {
   let input = document.getElementById("searchBar").value;

@@ -1,4 +1,4 @@
-import "./loadingAnimation.css";
+import "../css/loadingAnimation.css";
 
 function LoadingAnimation() {
   return <div id="loading-animation"></div>;

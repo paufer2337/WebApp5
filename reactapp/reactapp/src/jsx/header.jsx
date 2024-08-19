@@ -1,4 +1,4 @@
-import "./header.css";
+import "../css/header.css";
 
 import ColorModeSelector from "./colorModeSelector.jsx";
 

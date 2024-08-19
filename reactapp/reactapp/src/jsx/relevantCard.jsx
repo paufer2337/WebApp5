@@ -1,4 +1,4 @@
-import "./relevantCard.css";
+import "../css/relevantCard.css";
 
 function RelevantCard() {
   return (
