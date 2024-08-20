@@ -35,6 +35,7 @@ const ArticleList = ({ updateArticles }) => {
   }, [sortBy]);
 
   const handleSortChange = (event) => {
+    console.log(event.target.value);
     setSortBy(event.target.value);
   };
 
@@ -50,7 +51,8 @@ const ArticleList = ({ updateArticles }) => {
           className="form-select"
           value={sortBy}
           onChange={handleSortChange}>
-          <option value="">Inget specifik</option>
+          <option value="author-ascending">författare, stigande</option>
+          <option value="author-descending">författare, fallande</option>
           <option value="newest">Nyast</option>
           <option value="oldest">Äldst</option>
         </select>
@@ -79,10 +81,7 @@ const ArticleList = ({ updateArticles }) => {
                   <p className="card-publish-text">
                     {convertTime(article.published)}
                   </p>
-                  <button
-                    className="btn btn-primary">
-                    Lägg till bild
-                  </button>
+                  <button className="btn btn-primary">Lägg till bild</button>
                 </div>
               </div>
             ))}

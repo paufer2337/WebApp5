@@ -10,7 +10,6 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { expressjwt: expressJwt } = require("express-jwt");
 
-
 const USERS_FILE = "./users.json";
 
 app.use(cors());
@@ -19,7 +18,7 @@ app.use(express.json());
 // Helper function to read users from a file
 const readUsersFromFile = () => {
   try {
-    const usersData = fs.readFileSync(USERS_FILE, 'utf-8');
+    const usersData = fs.readFileSync(USERS_FILE, "utf-8");
     return JSON.parse(usersData);
   } catch (error) {
     return [];
@@ -32,47 +31,54 @@ const writeUsersToFile = (users) => {
 };
 
 // Register Route
-app.post('/api/register', (req, res) => {
-  const { username, password } = req.body;
+app.post("/api/register", (request, res) => {
+  const { username, password } = request.body;
   if (!username || !password) {
-    return res.status(400).json({ message: 'Username and password are required' });
+    return res
+      .status(400)
+      .json({ message: "Användarnamn och lösenord är obligatoriska" });
   }
 
   let users = readUsersFromFile();
-  const userExists = users.find(user => user.username === username);
+  const userExists = users.find((user) => user.username === username);
 
   if (userExists) {
-    return res.status(400).json({ message: 'Username already exists' });
+    return res
+      .status(400)
+      .json({ message: "En användare med detta namn finns redan." });
   }
 
   const hashedPassword = bcrypt.hashSync(password, 8);
   users.push({ username, password: hashedPassword });
   writeUsersToFile(users);
 
-  res.status(201).json({ message: 'User registered successfully!' });
+  res.status(201).json({ message: "Lyckad registrering" });
 });
 
 // Login Route
-app.post('/api/login', (req, res) => {
-  const { username, password } = req.body;
+app.post("/api/login", (request, response) => {
+  const { username, password } = request.body;
   let users = readUsersFromFile();
-  const user = users.find(u => u.username === username);
+  const user = users.find((u) => u.username === username);
   if (!user) {
-    return res.status(400).json({ message: 'User not found' });
+    return response.status(400).json({ message: "Användaren hittades." });
   }
-  const isPasswordValid = bcrypt.compareSync(password, user.password);
+  const isPasswordValid = bcrypt.comparesponseync(password, user.password);
   if (!isPasswordValid) {
-    return res.status(401).json({ message: 'Invalid credentials' });
+    return response.status(401).json({ message: "Inkorrekta uppgifter." });
   }
-  const token = jwt.sign({ username }, 'your_jwt_secret', { expiresIn: '1h' });
-  res.json({ token });
+  const token = jwt.sign({ username }, "your_jwt_secret", { expire: "1h" });
+  response.json({ token });
 });
 
 // Protected Route Example
-app.get('/api/protected', expressJwt({ secret: 'your_jwt_secret', algorithms: ['HS256'] }), (req, res) => {
-  res.json({ message: 'This is a protected route', user: req.user });
-});
-
+app.get(
+  "/api/protected",
+  expressJwt({ secret: "your_jwt_secret", algorithms: ["HS256"] }),
+  (request, response) => {
+    response.json({ message: "Detta är skyddad sökväg", user: request.user });
+  }
+);
 
 // Hard-coded articles data
 const articles = [
@@ -83,6 +89,7 @@ const articles = [
     link: "https://www.aftonbladet.se/nyheter/a/8JWWL2/inte-klart-med-ersattare-for-ribbenvik",
     published: new Date(Date.now()),
     topic: ["SamhalleKonflikter"],
+    author: "Johan Johnson",
   },
   {
     title: "Drogs in i inhägnad – dödades av 40 krokodiler",
@@ -91,13 +98,14 @@ const articles = [
     link: "https://www.aftonbladet.se/nyheter/a/bgWW6e/drogs-in-i-inhagnad-dodades-av-40-krokodiler",
     published: new Date(Date.now() - 172800000),
     topic: ["Ekonomi"],
+    author: "Fredrik Andersson",
   },
 ];
 
 // API endpoint to get articles
-app.get("/api/articles", (req, res) => {
+app.get("/api/articles", (request, response) => {
   let filteredArticles = articles;
-  const { topic, sortBy } = req.query;
+  const { topic, sortBy } = request.query;
 
   if (topic) {
     filteredArticles = filteredArticles.filter((article) =>
@@ -107,15 +115,35 @@ app.get("/api/articles", (req, res) => {
 
   if (sortBy === "newest") {
     filteredArticles = filteredArticles.sort(
-      (a, b) => new Date(b.published) - new Date(a.published)
+      (firstArticle, secondArticle) =>
+        new Date(secondArticle.published) - new Date(firstArticle.published)
     );
   } else if (sortBy === "oldest") {
     filteredArticles = filteredArticles.sort(
-      (a, b) => new Date(a.published) - new Date(b.published)
+      (firstArticle, secondArticle) =>
+        new Date(firstArticle.published) - new Date(secondArticle.published)
     );
+  } else if (sortBy === "author-ascending") {
+    filteredArticles = filteredArticles.sort((firstArticle, secondArticle) => {
+      const firstAuthor = firstArticle.author.toLowerCase();
+      const secondAuthor = secondArticle.author.toLowerCase();
+
+      if (firstAuthor < secondAuthor) return -1;
+      if (firstAuthor > secondAuthor) return 1;
+      return 0;
+    });
+  } else if (sortBy === "author-descending") {
+    filteredArticles = filteredArticles.sort((firstArticle, secondArticle) => {
+      const firstAuthor = firstArticle.author.toLowerCase();
+      const secondAuthor = secondArticle.author.toLowerCase();
+
+      if (firstAuthor > secondAuthor) return -1;
+      if (firstAuthor < secondAuthor) return 1;
+      return 0;
+    });
   }
 
-  res.json(filteredArticles);
+  response.json(filteredArticles);
 });
 
 app.listen(port, () => {
