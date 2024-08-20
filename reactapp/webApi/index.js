@@ -6,7 +6,7 @@ const { expressjwt: expressJwt } = require("express-jwt");
 
 const bcrypt = require("bcryptjs");
 
-const fileStreamer = require("fileStreamer");
+const fs = require("fs");
 const usersFile = "./users.json";
 
 const app = express();
@@ -16,7 +16,7 @@ app.use(express.json());
 // Helper function to read users from a file
 const readUsersFromFile = () => {
   try {
-    const usersData = fileStreamer.readFileSync(usersFile, "utf-8");
+    const usersData = fs.readFileSync(usersFile, "utf-8");
     return JSON.parse(usersData);
   } catch (error) {
     return [];
@@ -25,7 +25,7 @@ const readUsersFromFile = () => {
 
 // Helper function to write users to a file
 const writeUsersToFile = (users) => {
-  fileStreamer.writeFileSync(usersFile, JSON.stringify(users, null, 2));
+  fs.writeFileSync(usersFile, JSON.stringify(users, null, 2));
 };
 
 // Register Route
@@ -199,6 +199,35 @@ const articles = [
   },
 ];
 
+const sortArticles = (articles, sortBy) => {
+  return articles.sort((firstArticle, secondArticle) => {
+    switch (sortBy) {
+      case "newest":
+        return (
+          new Date(secondArticle.published) - new Date(firstArticle.published)
+        );
+
+      case "oldest":
+        return (
+          new Date(firstArticle.published) - new Date(secondArticle.published)
+        );
+
+      case "author-ascending":
+        const firstAuthorAscending = firstArticle.author.toLowerCase();
+        const secondAuthorAscending = secondArticle.author.toLowerCase();
+        return firstAuthorAscending.localeCompare(secondAuthorAscending);
+
+      case "author-descending":
+        const firstAuthorDescending = firstArticle.author.toLowerCase();
+        const secondAuthorDescending = secondArticle.author.toLowerCase();
+        return secondAuthorDescending.localeCompare(firstAuthorDescending);
+
+      default:
+        return articles;
+    }
+  });
+};
+
 // API endpoint to get articles
 app.get("/api/articles", (request, response) => {
   let filteredArticles = articles;
@@ -210,53 +239,7 @@ app.get("/api/articles", (request, response) => {
     );
   }
 
-  const sortArticles = (articles, sortBy) => {
-    return articles.sort((firstArticle, secondArticle) => {
-      switch (sortBy) {
-        case "newest":
-          return (
-            new Date(secondArticle.published) - new Date(firstArticle.published)
-          );
-
-        case "oldest":
-          return (
-            new Date(firstArticle.published) - new Date(secondArticle.published)
-          );
-
-        case "author-ascending":
-          const firstAuthorAscending = firstArticle.author.toLowerCase();
-          const secondAuthorAscending = secondArticle.author.toLowerCase();
-          return firstAuthorAscending.localeCompare(secondAuthorAscending);
-
-        case "author-descending":
-          const firstAuthorDescending = firstArticle.author.toLowerCase();
-          const secondAuthorDescending = secondArticle.author.toLowerCase();
-          return secondAuthorDescending.localeCompare(firstAuthorDescending);
-
-        default:
-          return articles;
-      }
-    });
-  };
-
-  // API endpoint to get articles
-  app.get("/api/articles", (request, response) => {
-    let filteredArticles = articles;
-    const { topic, sortBy } = request.query;
-
-    if (topic) {
-      filteredArticles = filteredArticles.filter((article) =>
-        article.topic.includes(topic)
-      );
-    }
-
-    // Apply sorting based on sortBy
     filteredArticles = sortArticles(filteredArticles, sortBy);
-
-    response.json(filteredArticles);
-  });
-
-  filteredArticles = sortArticles(filteredArticles, sortBy);
 
   response.json(filteredArticles);
 });
