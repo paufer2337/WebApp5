@@ -134,7 +134,7 @@ app.get("/api/articles", (request, response) => {
           return secondAuthorDescending.localeCompare(firstAuthorDescending); 
 
         default:
-          return 0;
+          return articles;
       }
     });
   };
