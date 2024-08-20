@@ -1,22 +1,13 @@
-import React, { useState } from "react";
-import Login from "./login.jsx";
+import React from "react";
 
 function LoginButton() {
-  const [showLogin, setShowLogin] = useState(false);
-
-  const handleButtonClick = () => {
-    setShowLogin((prevShowLogin) => !prevShowLogin);
-  };
-
   return (
     <div>
       <button
         id="register-button"
-        className="btn btn-primary"
-        onClick={handleButtonClick}>
-        {showLogin ? "Göm logga in" : "Logga in"}
+        className="btn btn-primary">
+        Logga in
       </button>
-      {showLogin && <Login />}
     </div>
   );
 }

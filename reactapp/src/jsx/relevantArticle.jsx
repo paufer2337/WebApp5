@@ -2,7 +2,7 @@ import React from "react";
 import "../css/relevantCard.css";
 import { getTags } from "./tags.js";
 
-const RelevantCard = ({ article, showImageButton }) => {
+const RelevantCard = ({ article }) => {
   if (!article) {
     return (
       <div className="relevant-card">
@@ -31,15 +31,12 @@ const RelevantCard = ({ article, showImageButton }) => {
         <img
           id="relevant-card-image"
           src=""
-          alt="Relevant"
         />
-        {showImageButton && ( // Conditional rendering based on prop
-          <button
-            id="add-image-button-relevant-article"
-            className="btn btn-primary">
-            Lägg till bild
-          </button>
-        )}
+        <button
+          id="add-image-button-relevant-article"
+          className="btn btn-primary">
+          Lägg till bild
+        </button>
       </div>
     </div>
   );

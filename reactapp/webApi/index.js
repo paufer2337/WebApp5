@@ -1,82 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 
-const jwt = require("jsonwebtoken");
-const { expressjwt: expressJwt } = require("express-jwt");
-
-const bcrypt = require("bcryptjs");
-
-const fileStreamer = require("fs");
-const usersFile = "./users.json";
-
 const app = express();
 app.use(cors());
 app.use(express.json());
-
-// Helper function to read users from a file
-const readUsersFromFile = () => {
-  try {
-    const usersData = fileStreamer.readFileSync(usersFile, "utf-8");
-    return JSON.parse(usersData);
-  } catch (error) {
-    return [];
-  }
-};
-
-// Helper function to write users to a file
-const writeUsersToFile = (users) => {
-  fileStreamer.writeFileSync(usersFile, JSON.stringify(users, null, 2));
-};
-
-// Register Route
-app.post("/api/register", (request, response) => {
-  const { username, password } = request.body;
-  if (!username || !password) {
-    return response
-      .status(400)
-      .json({ message: "Användarnamn och lösenord är obligatoriska" });
-  }
-
-  let users = readUsersFromFile();
-  const userExists = users.find((user) => user.username === username);
-
-  if (userExists) {
-    return response
-      .status(400)
-      .json({ message: "En användare med detta namn finns redan." });
-  }
-
-  const hashedPassword = bcrypt.hashSync(password, 8);
-  users.push({ username, password: hashedPassword });
-  writeUsersToFile(users);
-
-  response.status(201).json({ message: "Lyckad registrering" });
-});
-
-// Login Route
-app.post("/api/login", (request, response) => {
-  const { username, password } = request.body;
-  let users = readUsersFromFile();
-  const user = users.find((u) => u.username === username);
-  if (!user) {
-    return response.status(400).json({ message: "Användaren hittades." });
-  }
-  const isPasswordValid = bcrypt.comparesponseync(password, user.password);
-  if (!isPasswordValid) {
-    return response.status(401).json({ message: "Inkorrekta uppgifter." });
-  }
-  const token = jwt.sign({ username }, "your_jwt_secret", { expire: "1h" });
-  response.json({ token });
-});
-
-// Protected Route Example
-app.get(
-  "/api/protected",
-  expressJwt({ secret: "your_jwt_secret", algorithms: ["HS256"] }),
-  (request, response) => {
-    response.json({ message: "Detta är skyddad sökväg", user: request.user });
-  }
-);
 
 // Hard-coded articles data
 const articles = [
