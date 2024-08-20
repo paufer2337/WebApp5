@@ -29,10 +29,10 @@ const writeUsersToFile = (users) => {
 };
 
 // Register Route
-app.post("/api/register", (request, res) => {
+app.post("/api/register", (request, response) => {
   const { username, password } = request.body;
   if (!username || !password) {
-    return res
+    return response
       .status(400)
       .json({ message: "Användarnamn och lösenord är obligatoriska" });
   }
@@ -41,7 +41,7 @@ app.post("/api/register", (request, res) => {
   const userExists = users.find((user) => user.username === username);
 
   if (userExists) {
-    return res
+    return response
       .status(400)
       .json({ message: "En användare med detta namn finns redan." });
   }
@@ -50,7 +50,7 @@ app.post("/api/register", (request, res) => {
   users.push({ username, password: hashedPassword });
   writeUsersToFile(users);
 
-  res.status(201).json({ message: "Lyckad registrering" });
+  response.status(201).json({ message: "Lyckad registrering" });
 });
 
 // Login Route
@@ -239,8 +239,7 @@ app.get("/api/articles", (request, response) => {
     );
   }
 
-    filteredArticles = sortArticles(filteredArticles, sortBy);
-
+  filteredArticles = sortArticles(filteredArticles, sortBy);
   response.json(filteredArticles);
 });
 
