@@ -6,7 +6,7 @@ const { expressjwt: expressJwt } = require("express-jwt");
 
 const bcrypt = require("bcryptjs");
 
-const fs = require("fs");
+const fileStreamer = require("fs");
 const usersFile = "./users.json";
 
 const app = express();
@@ -16,7 +16,7 @@ app.use(express.json());
 // Helper function to read users from a file
 const readUsersFromFile = () => {
   try {
-    const usersData = fs.readFileSync(usersFile, "utf-8");
+    const usersData = fileStreamer.readFileSync(usersFile, "utf-8");
     return JSON.parse(usersData);
   } catch (error) {
     return [];
@@ -25,7 +25,7 @@ const readUsersFromFile = () => {
 
 // Helper function to write users to a file
 const writeUsersToFile = (users) => {
-  fs.writeFileSync(usersFile, JSON.stringify(users, null, 2));
+  fileStreamer.writeFileSync(usersFile, JSON.stringify(users, null, 2));
 };
 
 // Register Route
