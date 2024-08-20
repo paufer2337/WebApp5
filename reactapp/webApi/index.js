@@ -1,24 +1,22 @@
 const express = require("express");
-
-const fs = require("fs");
-
 const cors = require("cors");
-const app = express();
-const port = 3000;
 
-const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { expressjwt: expressJwt } = require("express-jwt");
 
-const USERS_FILE = "./users.json";
+const bcrypt = require("bcryptjs");
 
+const fileStreamer = require("fileStreamer");
+const usersFile = "./users.json";
+
+const app = express();
 app.use(cors());
 app.use(express.json());
 
 // Helper function to read users from a file
 const readUsersFromFile = () => {
   try {
-    const usersData = fs.readFileSync(USERS_FILE, "utf-8");
+    const usersData = fileStreamer.readFileSync(usersFile, "utf-8");
     return JSON.parse(usersData);
   } catch (error) {
     return [];
@@ -27,7 +25,7 @@ const readUsersFromFile = () => {
 
 // Helper function to write users to a file
 const writeUsersToFile = (users) => {
-  fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
+  fileStreamer.writeFileSync(usersFile, JSON.stringify(users, null, 2));
 };
 
 // Register Route
@@ -132,7 +130,7 @@ const articles = [
     summary:
       "▸ Stockholmsbörsen stiger efter att flera bolag har presenterat starka kvartalsrapporter.",
     link: "https://www.aftonbladet.se/nyheter/a/bgWW6e/drogs-in-i-inhagnad-dodades-av-40-krokodiler",
-    published: new Date(Date.now() - 43200000), 
+    published: new Date(Date.now() - 43200000),
     topic: ["Ekonomi", "Aktiemarknad"],
     author: "Erik Karlsson",
   },
@@ -150,7 +148,7 @@ const articles = [
     summary:
       "▸ Konflikten om tillgången till havsresurser mellan länder har eskalerat den senaste veckan.",
     link: "https://www.aftonbladet.se/nyheter/a/bgWW6e/drogs-in-i-inhagnad-dodades-av-40-krokodiler",
-    published: new Date(Date.now() - 259200000), 
+    published: new Date(Date.now() - 259200000),
     topic: ["SamhalleKonflikter", "Miljö"],
     author: "Peter Andersson",
   },
@@ -159,7 +157,7 @@ const articles = [
     summary:
       "▸ Kraftiga oväder har orsakat stora störningar i kollektivtrafiken under helgen.",
     link: "https://www.aftonbladet.se/nyheter/a/bgWW6e/drogs-in-i-inhagnad-dodades-av-40-krokodiler",
-    published: new Date(Date.now() - 172800000), 
+    published: new Date(Date.now() - 172800000),
     topic: ["Trafik", "Väder"],
     author: "Emma Sjöberg",
   },
@@ -168,7 +166,7 @@ const articles = [
     summary:
       "▸ En ny exoplanet har upptäckts som kan ha förutsättningar för liv.",
     link: "https://www.aftonbladet.se/nyheter/a/bgWW6e/drogs-in-i-inhagnad-dodades-av-40-krokodiler",
-    published: new Date(Date.now() - 259200000 * 2), 
+    published: new Date(Date.now() - 259200000 * 2),
     topic: ["Vetenskap", "Rymden"],
     author: "Nina Larsson",
   },
@@ -186,7 +184,7 @@ const articles = [
     summary:
       "▸ En politisk kris har brutit ut i ett sydeuropeiskt land efter en misslyckad omröstning.",
     link: "https://www.aftonbladet.se/nyheter/a/bgWW6e/drogs-in-i-inhagnad-dodades-av-40-krokodiler",
-    published: new Date(Date.now() - 432000000), 
+    published: new Date(Date.now() - 432000000),
     topic: ["Politik", "Internationellt"],
     author: "Eva Johansson",
   },
@@ -195,12 +193,11 @@ const articles = [
     summary:
       "▸ Allt fler konsumenter efterfrågar hållbart mode, visar ny undersökning.",
     link: "https://www.aftonbladet.se/nyheter/a/bgWW6e/drogs-in-i-inhagnad-dodades-av-40-krokodiler",
-    published: new Date(Date.now() - 172800000 * 2), 
+    published: new Date(Date.now() - 172800000 * 2),
     topic: ["Livsstil", "Miljö"],
     author: "Karin Eriksson",
   },
 ];
-
 
 // API endpoint to get articles
 app.get("/api/articles", (request, response) => {
@@ -217,20 +214,24 @@ app.get("/api/articles", (request, response) => {
     return articles.sort((firstArticle, secondArticle) => {
       switch (sortBy) {
         case "newest":
-          return new Date(secondArticle.published) - new Date(firstArticle.published);
+          return (
+            new Date(secondArticle.published) - new Date(firstArticle.published)
+          );
 
         case "oldest":
-          return new Date(firstArticle.published) - new Date(secondArticle.published);
+          return (
+            new Date(firstArticle.published) - new Date(secondArticle.published)
+          );
 
         case "author-ascending":
           const firstAuthorAscending = firstArticle.author.toLowerCase();
           const secondAuthorAscending = secondArticle.author.toLowerCase();
-          return firstAuthorAscending.localeCompare(secondAuthorAscending); 
+          return firstAuthorAscending.localeCompare(secondAuthorAscending);
 
         case "author-descending":
           const firstAuthorDescending = firstArticle.author.toLowerCase();
           const secondAuthorDescending = secondArticle.author.toLowerCase();
-          return secondAuthorDescending.localeCompare(firstAuthorDescending); 
+          return secondAuthorDescending.localeCompare(firstAuthorDescending);
 
         default:
           return articles;
@@ -255,12 +256,12 @@ app.get("/api/articles", (request, response) => {
     response.json(filteredArticles);
   });
 
-  
   filteredArticles = sortArticles(filteredArticles, sortBy);
 
   response.json(filteredArticles);
 });
 
+const port = 3000;
 app.listen(port, () => {
   console.log(`Backend API running at http://localhost:${port}`);
 });
