@@ -102,6 +102,7 @@ const articles = [
   },
 ];
 
+
 // API endpoint to get articles
 app.get("/api/articles", (request, response) => {
   let filteredArticles = articles;
@@ -113,35 +114,50 @@ app.get("/api/articles", (request, response) => {
     );
   }
 
-  if (sortBy === "newest") {
-    filteredArticles = filteredArticles.sort(
-      (firstArticle, secondArticle) =>
-        new Date(secondArticle.published) - new Date(firstArticle.published)
-    );
-  } else if (sortBy === "oldest") {
-    filteredArticles = filteredArticles.sort(
-      (firstArticle, secondArticle) =>
-        new Date(firstArticle.published) - new Date(secondArticle.published)
-    );
-  } else if (sortBy === "author-ascending") {
-    filteredArticles = filteredArticles.sort((firstArticle, secondArticle) => {
-      const firstAuthor = firstArticle.author.toLowerCase();
-      const secondAuthor = secondArticle.author.toLowerCase();
+  const sortArticles = (articles, sortBy) => {
+    return articles.sort((firstArticle, secondArticle) => {
+      switch (sortBy) {
+        case "newest":
+          return new Date(secondArticle.published) - new Date(firstArticle.published);
 
-      if (firstAuthor < secondAuthor) return -1;
-      if (firstAuthor > secondAuthor) return 1;
-      return 0;
-    });
-  } else if (sortBy === "author-descending") {
-    filteredArticles = filteredArticles.sort((firstArticle, secondArticle) => {
-      const firstAuthor = firstArticle.author.toLowerCase();
-      const secondAuthor = secondArticle.author.toLowerCase();
+        case "oldest":
+          return new Date(firstArticle.published) - new Date(secondArticle.published);
 
-      if (firstAuthor > secondAuthor) return -1;
-      if (firstAuthor < secondAuthor) return 1;
-      return 0;
+        case "author-ascending":
+          const firstAuthorAscending = firstArticle.author.toLowerCase();
+          const secondAuthorAscending = secondArticle.author.toLowerCase();
+          return firstAuthorAscending.localeCompare(secondAuthorAscending); 
+
+        case "author-descending":
+          const firstAuthorDescending = firstArticle.author.toLowerCase();
+          const secondAuthorDescending = secondArticle.author.toLowerCase();
+          return secondAuthorDescending.localeCompare(firstAuthorDescending); 
+
+        default:
+          return 0;
+      }
     });
-  }
+  };
+
+  // API endpoint to get articles
+  app.get("/api/articles", (request, response) => {
+    let filteredArticles = articles;
+    const { topic, sortBy } = request.query;
+
+    if (topic) {
+      filteredArticles = filteredArticles.filter((article) =>
+        article.topic.includes(topic)
+      );
+    }
+
+    // Apply sorting based on sortBy
+    filteredArticles = sortArticles(filteredArticles, sortBy);
+
+    response.json(filteredArticles);
+  });
+
+  
+  filteredArticles = sortArticles(filteredArticles, sortBy);
 
   response.json(filteredArticles);
 });
