@@ -9,14 +9,13 @@ import { ThemeProvider } from "./ThemeContext.jsx";
 import Header from "./header.jsx";
 import LoadingAnimation from "./loadingAnimation.jsx";
 import SearchBar from "./searchBar.jsx";
-import RelevantCard from "./relevantArticle.jsx";
-import ArticleList from "./ArticleList.jsx";
+
 import ParentComponent from "./ArticleParent.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider>
-      <App />
+        <App />
     </ThemeProvider>
   </StrictMode>
 );

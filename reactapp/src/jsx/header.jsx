@@ -1,10 +1,11 @@
-import "../css/header.css";
-
 import React, { useContext } from "react";
+
+import "../css/header.css";
 
 import ThemeContext from "./ThemeContext";
 import ColorModeSelector from "./colorModeSelector.jsx";
 import LoginButton from "./loginButton.jsx";
+import RegisterButton from "./registerButton.jsx";
 
 function Header() {
   const { theme } = useContext(ThemeContext);
@@ -32,6 +33,9 @@ function Header() {
               href="/">
               Sekretesspolicy
             </a>
+          </li>
+          <li className="nav-item">
+            <RegisterButton></RegisterButton>
           </li>
           <li className="nav-item">
             <LoginButton></LoginButton>

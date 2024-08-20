@@ -1,9 +1,8 @@
 import React from "react";
 import "../css/relevantCard.css";
-
 import { getTags } from "./tags.js";
 
-const RelevantCard = ({ article }) => {
+const RelevantCard = ({ article, showImageButton }) => {
   if (!article) {
     return (
       <div className="relevant-card">
@@ -28,18 +27,19 @@ const RelevantCard = ({ article }) => {
           rel="noopener noreferrer">
           Läs mer
         </a>
-        <p id="relevant-card-tags">
-          Nyckelord: {getTags(article.summary)}
-        </p>
+        <p id="relevant-card-tags">Nyckelord: {getTags(article.summary)}</p>
         <img
           id="relevant-card-image"
           src=""
+          alt="Relevant"
         />
-        <button
-          id="add-image-button"
-          className="btn btn-primary">
-          Lägg till bild
-        </button>
+        {showImageButton && ( // Conditional rendering based on prop
+          <button
+            id="add-image-button-relevant-article"
+            className="btn btn-primary">
+            Lägg till bild
+          </button>
+        )}
       </div>
     </div>
   );

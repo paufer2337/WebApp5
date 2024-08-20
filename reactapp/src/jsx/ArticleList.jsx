@@ -72,8 +72,7 @@ const ArticleList = ({ updateArticles }) => {
                   <a
                     href={article.link}
                     className="card-link"
-                    target="_blank"
-                    rel="noopener noreferrer">
+                    target="_blank">
                     Läs mer
                   </a>
                   <p>Nyckelord: {getTags(article.summary)}</p>
