@@ -1,93 +1,105 @@
+:root {
+  --card-border-dark-mode: solid var(--light-gray) 2px;
+  --card-border-light-mode: solid var(--dark-gray) 2px;
+  --box-shadow-dark-mode: 2px 5px 10px var(--light-gray);
+  --box-shadow-light-mode: 2px 5px 10px var(--inverted-light-gray);
+  --short-transition-time: 200ms;
+  --large-border-radius: 30px;
+}
+
+/* Base styles for relevant card */
 .relevant-card {
-    border: var(--card-border);
-    border-radius: 25px;
-    background-color: var(--middle-gray);
-    padding: 1%;
-    margin: 2%;
+  border-radius: 25px;
+  padding: 1%;
+  margin: 2%;
+  transition: all var(--short-transition-time);
+  background-size: cover; /* Ensure the background size is set to cover */
+  background-position: center; /* Center the background image */
 }
 
+/* Light mode styles for relevant card */
+.light-theme .relevant-card {
+  border: var(--card-border-light-mode);
+  box-shadow: var(--box-shadow-light-mode);
+}
+
+/* Dark mode styles for relevant card */
+.dark-theme .relevant-card {
+  border: var(--card-border-dark-mode);
+  box-shadow: var(--box-shadow-dark-mode);
+}
+
+/* Hover effect for both themes */
 .relevant-card:hover {
-    border: var(--card-border);
-    border-radius: var(--large-border-radius);
-    box-shadow: var(--box-shadow);
-    text-align: center;
-    font-size: x-large;
-    padding: 5%;
-
-    #relevant-card-text,
-    #relevant-card-link {
-        font-size: x-large;
-    }
+  border-radius: var(--large-border-radius);
+  text-align: center;
+  font-size: x-large;
+  padding: 5%;
 }
 
-#relevant-card-title {
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    font-size: x-large;
+/* Hover effect for light theme */
+.light-theme .relevant-card:hover {
+  box-shadow: var(--box-shadow-light-mode);
 }
 
+/* Hover effect for dark theme */
+.dark-theme .relevant-card:hover {
+  box-shadow: var(--box-shadow-dark-mode);
+}
+
+/* Styling for text and links inside the card */
+#relevant-card-title,
+#relevant-today-title,
+#relevant-card-text,
+#relevant-card-link,
+#relevant-card-tags {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-shadow: 
+    1px 1px 0 #000, 
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
+
+#relevant-card-title,
 #relevant-today-title {
-    text-align: center;
-    color: white;
-    font-weight: bold;
+  text-align: center;
+  font-weight: bold;
+  font-size: x-large;
 }
 
 #relevant-card-text:not(:hover) {
-    color: white;
-    font-size: large;
-    font-family: "Times New Roman", Times, serif;
-    margin-bottom: -0.1%;
+  font-size: large;
+  margin-bottom: -0.1%;
 }
 
 #relevant-card-text:hover {
-    color: white;
-    font-size: x-large;
+  font-size: x-large;
 }
 
 #relevant-card-link:visited {
-    color: wheat;
+  color: rgb(13, 147, 224);
 }
 
 #relevant-card-link {
-    color: white;
-    font-size: large;
-}
-
-.relevant-card {
-    border: var(--card-border);
-    border-radius: 25px;
-    background-color: #36454f;
-}
-
-#relevant-card-image {
-    width: 55%;
-    display: flex;
-    margin: 10px auto;
-}
-
-/* URL for testing:
-https://www.migrationsverket.se/images/18.6f22e3491708b85db6e302b/1591710118257/Migrationsverket_logotyp_frizon_R%C3%96D_rgb.png
-*/
-
-.relevant-card,
-h2,
-a,
-#relevant-card-tags {
-    transition: all var(--short-transition-time);
+  font-size: large;
 }
 
 #relevant-card-tags {
-    color: white;
-    font-size: small;
-    font-family: "Times New Roman", Times, serif;
+  font-size: small;
 }
 
 #relevant-card-tags:hover {
-    font-size: large;
-    font-family: "Times New Roman", Times, serif;
+  font-size: large;
+}
+
+#relevant-card-image {
+  width: 55%;
+  display: flex;
+  margin: 10px auto;
 }
 
 #add-image-button {
-    display: none;
+  display: none;
 }
