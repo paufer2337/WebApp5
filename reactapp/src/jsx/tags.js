@@ -8,6 +8,23 @@ export function getTags(summary) {
     "Sandviken",
     "Välfärd",
     "Död",
+    "Stockholm",
+    "Börsen",
+    "Framsteg",
+    "AI",
+    "Forskning",
+    "Fastighet",
+    "Skatt",
+    "Värme",
+    "Rekord",
+    "Kollektivtrafik",
+    "Resurser",
+    "Mode",
+    "Utveckling",
+    "Exoplanet",
+    "Smartphones",
+    "Politisk",
+    "Sydeuropeiskt land",
   ];
 
   var foundTags = [];

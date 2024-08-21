@@ -31,9 +31,8 @@ const RelevantCard = ({ article, showImageButton }) => {
         <img
           id="relevant-card-image"
           src=""
-          alt="Relevant"
         />
-        {showImageButton && ( // Conditional rendering based on prop
+        {showImageButton && (
           <button
             id="add-image-button-relevant-article"
             className="btn btn-primary">

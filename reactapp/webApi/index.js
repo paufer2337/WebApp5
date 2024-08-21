@@ -1,22 +1,20 @@
 const express = require("express");
+const fs = require("fs");
 const cors = require("cors");
-
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { expressjwt: expressJwt } = require("express-jwt");
-
-const bcrypt = require("bcryptjs");
-
-const fileStreamer = require("fs");
-const usersFile = "./users.json";
-
 const app = express();
+
+const USERS_FILE = "./users.json";
+
 app.use(cors());
 app.use(express.json());
 
 // Helper function to read users from a file
 const readUsersFromFile = () => {
   try {
-    const usersData = fileStreamer.readFileSync(usersFile, "utf-8");
+    const usersData = fs.readFileSync(USERS_FILE, "utf-8");
     return JSON.parse(usersData);
   } catch (error) {
     return [];
@@ -25,56 +23,54 @@ const readUsersFromFile = () => {
 
 // Helper function to write users to a file
 const writeUsersToFile = (users) => {
-  fileStreamer.writeFileSync(usersFile, JSON.stringify(users, null, 2));
+  fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
 };
 
 // Register Route
-app.post("/api/register", (request, response) => {
-  const { username, password } = request.body;
+app.post("/api/register", (req, res) => {
+  const { username, password } = req.body;
   if (!username || !password) {
-    return response
+    return res
       .status(400)
-      .json({ message: "Användarnamn och lösenord är obligatoriska" });
+      .json({ message: "Username and password are required" });
   }
 
   let users = readUsersFromFile();
   const userExists = users.find((user) => user.username === username);
 
   if (userExists) {
-    return response
-      .status(400)
-      .json({ message: "En användare med detta namn finns redan." });
+    return res.status(400).json({ message: "Username already exists" });
   }
 
   const hashedPassword = bcrypt.hashSync(password, 8);
   users.push({ username, password: hashedPassword });
   writeUsersToFile(users);
 
-  response.status(201).json({ message: "Lyckad registrering" });
+  res.status(201).json({ message: "User registered successfully!" });
 });
 
 // Login Route
-app.post("/api/login", (request, response) => {
-  const { username, password } = request.body;
+app.post("/api/login", (req, res) => {
+  const { username, password } = req.body;
   let users = readUsersFromFile();
   const user = users.find((u) => u.username === username);
   if (!user) {
-    return response.status(400).json({ message: "Användaren hittades." });
+    return res.status(400).json({ message: "User not found" });
   }
-  const isPasswordValid = bcrypt.comparesponseync(password, user.password);
+  const isPasswordValid = bcrypt.compareSync(password, user.password);
   if (!isPasswordValid) {
-    return response.status(401).json({ message: "Inkorrekta uppgifter." });
+    return res.status(401).json({ message: "Invalid credentials" });
   }
-  const token = jwt.sign({ username }, "your_jwt_secret", { expire: "1h" });
-  response.json({ token });
+  const token = jwt.sign({ username }, "your_jwt_secret", { expiresIn: "1h" });
+  res.json({ token });
 });
 
 // Protected Route Example
 app.get(
   "/api/protected",
   expressJwt({ secret: "your_jwt_secret", algorithms: ["HS256"] }),
-  (request, response) => {
-    response.json({ message: "Detta är skyddad sökväg", user: request.user });
+  (req, res) => {
+    res.json({ message: "This is a protected route", user: req.user });
   }
 );
 

@@ -1,4 +1,3 @@
-// Register.jsx
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
@@ -20,7 +19,6 @@ const Register = () => {
 
       if (response.status === 201) {
         localStorage.setItem("userRegistered", "true");
-        history.push("/login");
       }
     } catch (error) {
       console.error("Error during registration:", error);
@@ -30,24 +28,22 @@ const Register = () => {
 
   return (
     <div>
-      <h2>Registrera</h2>
+      <h1>Register</h1>
       <form>
         <div>
-          <label>Användarnamn:</label>
+          <label>Username:</label>
           <input
             type="text"
-            placeholder="Användarnamn"
             value={username}
-            onChange={(event) => setUsername(event.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         <div>
-          <label>Lösenord:</label>
+          <label>Password:</label>
           <input
             type="password"
-            placeholder="Lösenord"
             value={password}
-            onChange={(event) => setPassword(event.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <button

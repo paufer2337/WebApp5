@@ -14,7 +14,7 @@ function LoginButton() {
         id="register-button"
         className="btn btn-primary"
         onClick={handleButtonClick}>
-        {showLogin ? "Göm logga in" : "Logga in"}
+        {showLogin ? "Göm inloggning" : "Logga in"}
       </button>
       {showLogin && <Login />}
     </div>

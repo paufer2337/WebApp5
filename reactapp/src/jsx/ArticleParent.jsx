@@ -3,12 +3,20 @@ import RelevantCard from "./relevantArticle.jsx";
 import ArticleList from "./ArticleList.jsx";
 
 const ArticleParent = () => {
-  const [showImageButton, setShowImageButton] = useState(true); // Initial state
+  const [showImageButton, setShowImageButton] = useState(false);
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    if (localStorage.getItem("token")) {
-      setShowImageButton((prevState) => !prevState);
+    const token = localStorage.getItem("token");
+    console.log("Token from localStorage:", token);
+
+    // If a token is present, update the showImageButton state
+    if (token) {
+      console.log("Token found, updating showImageButton state");
+      setShowImageButton(true); // Set to true if logged in
+    } else {
+      console.log("No token found");
+      setShowImageButton(false); // Hide button if not logged in
     }
   }, []);
 

@@ -1,11 +1,8 @@
-// Login.jsx
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const history = useHistory(); // Initialize useHistory
 
   const handleLogin = async () => {
     const response = await fetch("http://localhost:3000/api/login", {
@@ -18,7 +15,7 @@ const Login = () => {
     if (data.token) {
       localStorage.setItem("token", data.token);
       alert("Login successful");
-      history.push("/articles");
+      window.location.reload(true);
     } else {
       alert(data.message);
     }
@@ -26,18 +23,18 @@ const Login = () => {
 
   return (
     <div>
-      <h2>Logga in</h2>
+      <h1>Login</h1>
       <input
         type="text"
-        placeholder="Användarnamn"
+        placeholder="Username"
         value={username}
-        onChange={(event) => setUsername(event.target.value)}
+        onChange={(e) => setUsername(e.target.value)}
       />
       <input
         type="password"
-        placeholder="Lösenord"
+        placeholder="Password"
         value={password}
-        onChange={(event) => setPassword(event.target.value)}
+        onChange={(e) => setPassword(e.target.value)}
       />
       <button onClick={handleLogin}>Login</button>
     </div>

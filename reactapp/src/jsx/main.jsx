@@ -1,6 +1,7 @@
 import React from "react"; // Keep this only once at the top
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+
 import App from "./App.jsx";
 import "../css/index.css"; 
 
@@ -20,7 +21,7 @@ createRoot(document.getElementById("root")).render(
   </StrictMode>
 );
 
-const Main = () => {
+const Main = () => {  
   return (
     <div>
       <Header></Header>
