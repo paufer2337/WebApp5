@@ -7,7 +7,7 @@
   --large-border-radius: 30px;
 }
 
-/* Base styles for card */
+
 .card {
   border-radius: 25px;
   width: 30%;
@@ -16,27 +16,31 @@
   margin: 0.5%;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat; /* Ensure the background image does not repeat */
+  background-repeat: no-repeat; 
   transition: all var(--short-transition-time);
 }
 
-/* Light mode styles for card */
+
 .light-theme-card {
   border: var(--card-border-light-mode);
-  background-image: url('../img/card_bg_light.png'); /* Use your light mode background image */
+  background-image: url('../img/card_bg_light.png'); 
   box-shadow: var(--box-shadow-light-mode);
   color: var(--light-gray);
 }
 
-/* Dark mode styles for card */
+
 .dark-theme-card {
   border: var(--card-border-dark-mode);
-  background-image: url('../img/card_bg_dark.png'); /* Use your dark mode background image */
-  box-shadow: var(--box-shadow-dark-mode);
-  color: #000000;
+  background-image: url('../img/card_bg_dark.png'); 
+  box-shadow: var(--box-shadow-light-mode);
+  color: #e4e4e4;
+  text-shadow: 
+    1px 1px 0 #000, 
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000;
 }
 
-/* Hover effect for both themes */
 .card:hover {
   border-radius: var(--large-border-radius);
   box-shadow: var(--box-shadow-dark-mode);
@@ -45,17 +49,14 @@
   padding: 5%;
 }
 
-/* Hover effect for light theme */
 .light-theme-card:hover {
   box-shadow: var(--box-shadow-light-mode);
 }
 
-/* Hover effect for dark theme */
 .dark-theme-card:hover {
   box-shadow: var(--box-shadow-dark-mode);
 }
 
-/* Styling for text and links inside the card */
 .card-title {
   text-align: center;
   font-size: large;

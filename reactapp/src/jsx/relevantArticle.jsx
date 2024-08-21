@@ -8,7 +8,6 @@ import darkThemeImg from '../img/relevant_bg_dark.png';
 const RelevantCard = ({ article, showImageButton }) => {
   const { theme } = useContext(ThemeContext);
 
-  // Determine the background image based on the theme
   const backgroundImage = theme === "dark" ? darkThemeImg : lightThemeImg;
 
   if (!article) {

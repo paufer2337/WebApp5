@@ -21,7 +21,7 @@ const ArticleList = ({ updateArticles }) => {
       .then((response) => response.json())
       .then((data) => {
         setArticles(data);
-        updateArticles(data); // Call function passed from parent
+        updateArticles(data);
         setLoading(false);
       })
       .catch((error) => {

@@ -8,6 +8,8 @@
   --inverted-dark-gray:#ffffff;
   
   --large-border-radius: 70px;
+  --background-light: url('../img/bg_light.png');
+  --background-dark: url('../img/bg_dark.png');
 }
 
 html {
@@ -28,7 +30,17 @@ html {
 body {
   margin-bottom: 60px;
   font-family: "Times New Roman", Times, serif;
-  background-color: var(--dark-gray);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.light-theme {
+  background-image: var(--background-light);
+}
+
+.dark-theme {
+  background-image: var(--background-dark);
 }
 
 .container-fluid {

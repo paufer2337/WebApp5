@@ -7,29 +7,29 @@
   --large-border-radius: 30px;
 }
 
-/* Base styles for relevant card */
+
 .relevant-card {
   border-radius: 25px;
   padding: 1%;
   margin: 2%;
   transition: all var(--short-transition-time);
-  background-size: cover; /* Ensure the background size is set to cover */
-  background-position: center; /* Center the background image */
+  background-size: cover; 
+  background-position: center; 
 }
 
-/* Light mode styles for relevant card */
+
 .light-theme .relevant-card {
   border: var(--card-border-light-mode);
   box-shadow: var(--box-shadow-light-mode);
 }
 
-/* Dark mode styles for relevant card */
+
 .dark-theme .relevant-card {
   border: var(--card-border-dark-mode);
   box-shadow: var(--box-shadow-dark-mode);
 }
 
-/* Hover effect for both themes */
+
 .relevant-card:hover {
   border-radius: var(--large-border-radius);
   text-align: center;
@@ -37,17 +37,17 @@
   padding: 5%;
 }
 
-/* Hover effect for light theme */
+
 .light-theme .relevant-card:hover {
   box-shadow: var(--box-shadow-light-mode);
 }
 
-/* Hover effect for dark theme */
+
 .dark-theme .relevant-card:hover {
   box-shadow: var(--box-shadow-dark-mode);
 }
 
-/* Styling for text and links inside the card */
+
 #relevant-card-title,
 #relevant-today-title,
 #relevant-card-text,
