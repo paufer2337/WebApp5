@@ -10,13 +10,12 @@ const ArticleParent = () => {
     const token = localStorage.getItem("token");
     console.log("Token from localStorage:", token);
 
-    // If a token is present, update the showImageButton state
     if (token) {
       console.log("Token found, updating showImageButton state");
-      setShowImageButton(true); // Set to true if logged in
+      setShowImageButton(true); 
     } else {
       console.log("No token found");
-      setShowImageButton(false); // Hide button if not logged in
+      setShowImageButton(false); 
     }
   }, []);
 
@@ -40,7 +39,7 @@ const ArticleParent = () => {
     <div>
       <RelevantCard
         article={relevantArticle}
-        showImageButton={showImageButton}
+        showImageButton={showImageButton} 
       />
       <ArticleList updateArticles={updateArticles} />
     </div>

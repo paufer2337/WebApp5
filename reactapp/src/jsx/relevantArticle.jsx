@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../css/relevantCard.css";
 import { getTags } from "./tags.js";
+import ThemeContext from "./ThemeContext";
+import lightThemeImg from '../img/relevant_bg_light.png';
+import darkThemeImg from '../img/relevant_bg_dark.png';
 
 const RelevantCard = ({ article, showImageButton }) => {
+  const { theme } = useContext(ThemeContext);
+
+  const backgroundImage = theme === "dark" ? darkThemeImg : lightThemeImg;
+
   if (!article) {
     return (
       <div className="relevant-card">
@@ -15,7 +22,9 @@ const RelevantCard = ({ article, showImageButton }) => {
   }
 
   return (
-    <div className="relevant-card">
+    <div
+      className="relevant-card"
+      style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="relevant-card-body">
         <h2 id="relevant-today-title">Relevant idag</h2>
         <h2 id="relevant-card-title">{article.title}</h2>

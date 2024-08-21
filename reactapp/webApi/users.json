@@ -30,5 +30,29 @@
   {
     "username": "123g",
     "password": "$2a$08$LrLJLJKMg5OrP6nXwOuePeXSJXwPId5eWXgD.XZcL6QbTYZecufW2"
+  },
+  {
+    "username": "io",
+    "password": "$2a$08$KF9gK/gfezmQ6JsldaUcye1tOt3JMNYdAA/VccM48YX/Np1jTBGFu"
+  },
+  {
+    "username": "12h",
+    "password": "$2a$08$GEQW71WBiNt3iOCRKRi5Vefj5tNqemAUhAJl0PQ1zktNEAAuUgzGa"
+  },
+  {
+    "username": "<<",
+    "password": "$2a$08$6fwUbjskT.d1S6uAbZL0VuvqushO2pd0aFRUn1koC91PIl9mF49Ui"
+  },
+  {
+    "username": "12345g",
+    "password": "$2a$08$DUponN7AhdwBihHbQX2UQut4eL7GU5aFQolzip/plHnJjd1570q4W"
+  },
+  {
+    "username": "kj",
+    "password": "$2a$08$uYEPKUA05eYq/TeHf6zYGOnESPf0lnyIo/KEzj5Vye.hzn/KQWGRm"
+  },
+  {
+    "username": "nb",
+    "password": "$2a$08$3JGwCqaXRVgiaGfZRefBi./bynPEfcVWDNKawp1bfMQa1pCyk9JLK"
   }
 ]

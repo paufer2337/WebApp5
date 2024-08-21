@@ -4,6 +4,7 @@ const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { expressjwt: expressJwt } = require("express-jwt");
+
 const app = express();
 
 const USERS_FILE = "./users.json";

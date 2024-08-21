@@ -1,23 +1,21 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import {postUser} from "./user.js";
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const history = useHistory(); // useHistory hook for navigation
 
   const handleRegister = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
+      const data = await postUser(
+        username,
+        password,
+        "http://localhost:3000/api/register"
+      );
 
-      const data = await response.json();
       alert(data.message);
 
-      if (response.status === 201) {
+      if (data.status === 201) {
         localStorage.setItem("userRegistered", "true");
       }
     } catch (error) {

@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom";
-import Main from "./main.jsx";
-import Login from "./login.jsx";
-import Register from "./register.jsx";
+
+import React, { useContext, useEffect } from "react";
+import "../css/App.css"; 
+import Main from "./main";
+import ThemeContext from "./ThemeContext.jsx"; 
 
 function App() {
+  const { theme } = useContext(ThemeContext);
+
+  useEffect(() => {
+    document.body.className = theme === "dark" ? "dark-theme" : "light-theme";
+  }, [theme]);
 
   return (
     <div className="container">
-    <Main></Main>
+      <Main />
     </div>
   );
 }

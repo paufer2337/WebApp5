@@ -1,24 +1,31 @@
 import React, { useState } from "react";
 
-const Login = () => {
+const loginUser = async (username, password) => {
+  const response = await fetch("http://localhost:3000/api/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username, password }),
+  });
+
+  const data = await response.json();
+  return data;
+};
+
+const Login = ({ setIsLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
-    const response = await fetch("http://localhost:3000/api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
-    });
-    const data = await response.json();
+    const data = await loginUser(username, password);
 
     if (data.token) {
       localStorage.setItem("token", data.token);
+      setIsLoggedIn(true);
       alert("Login successful");
-      window.location.reload(true);
     } else {
       alert(data.message);
-    }
+    } // Should do state instead for specific components.
+    window.location.reload(false);
   };
 
   return (
@@ -28,13 +35,13 @@ const Login = () => {
         type="text"
         placeholder="Username"
         value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        onChange={(event) => setUsername(event.target.value)}
       />
       <input
         type="password"
         placeholder="Password"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(event) => setPassword(event.target.value)}
       />
       <button onClick={handleLogin}>Login</button>
     </div>
