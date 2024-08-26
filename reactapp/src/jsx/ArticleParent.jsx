@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import RelevantCard from "./relevantArticle.jsx";
+import RelevantCard from "./RelevantArticle.jsx";
 import ArticleList from "./ArticleList.jsx";
 
 const ArticleParent = () => {
@@ -10,13 +10,7 @@ const ArticleParent = () => {
     const token = localStorage.getItem("token");
     console.log("Token from localStorage:", token);
 
-    if (token) {
-      console.log("Token found, updating showImageButton state");
-      setShowImageButton(true); 
-    } else {
-      console.log("No token found");
-      setShowImageButton(false); 
-    }
+    setShowImageButton(!!token);
   }, []);
 
   const updateArticles = (newArticles) => {
@@ -37,11 +31,17 @@ const ArticleParent = () => {
 
   return (
     <div>
-      <RelevantCard
-        article={relevantArticle}
-        showImageButton={showImageButton} 
+      {relevantArticle && (
+        <RelevantCard
+          article={relevantArticle}
+          showImageButton={showImageButton}
+        />
+      )}
+      <ArticleList
+        updateArticles={updateArticles}
+        showImageButton={showImageButton}
+        articles={articles}
       />
-      <ArticleList updateArticles={updateArticles} />
     </div>
   );
 };

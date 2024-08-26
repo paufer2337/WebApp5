@@ -82,7 +82,7 @@
   font-size: small;
 }
 
-.card-image {
+img {
   width: 55%;
   display: flex;
   margin: 10px auto;

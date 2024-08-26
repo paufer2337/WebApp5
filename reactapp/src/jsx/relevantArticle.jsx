@@ -1,14 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "../css/relevantCard.css";
 import { getTags } from "./tags.js";
 import ThemeContext from "./ThemeContext";
-import lightThemeImg from '../img/relevant_bg_light.png';
-import darkThemeImg from '../img/relevant_bg_dark.png';
+import lightThemeImg from "../img/relevant_bg_light.png";
+import darkThemeImg from "../img/relevant_bg_dark.png";
 
 const RelevantCard = ({ article, showImageButton }) => {
   const { theme } = useContext(ThemeContext);
+  const [imageUrl, setImageUrl] = useState("");
 
   const backgroundImage = theme === "dark" ? darkThemeImg : lightThemeImg;
+
+  const handleAddImage = () => {
+    const newImageUrl = prompt("Ange URL för bilden:");
+    if (newImageUrl) {
+      setImageUrl(newImageUrl); 
+    }
+  };
 
   if (!article) {
     return (
@@ -39,12 +47,16 @@ const RelevantCard = ({ article, showImageButton }) => {
         <p id="relevant-card-tags">Nyckelord: {getTags(article.summary)}</p>
         <img
           id="relevant-card-image"
-          src=""
+          src={imageUrl}
+          alt={article.title}
+          style={{ display: imageUrl ? "block" : "none" }}
         />
         {showImageButton && (
           <button
             id="add-image-button-relevant-article"
-            className="btn btn-primary">
+            className="btn btn-primary"
+            onClick={handleAddImage} 
+          >
             Lägg till bild
           </button>
         )}

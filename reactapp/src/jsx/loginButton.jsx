@@ -16,11 +16,11 @@ function LoginButton() {
       // Logout logic
       localStorage.removeItem("token");
       setIsLoggedIn(false);
-      alert("Logout successful");  
-        window.location.reload(false);
+      alert("Logout successful");
+      window.location.reload(false);
     } else {
       setShowLogin((prevShowLogin) => !prevShowLogin);
-    }    
+    }
   };
 
   return (
