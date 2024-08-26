@@ -1,13 +1,11 @@
 :root {
   --short-transition-time: 0.4s;
   --container-width: 50px;
-  --container-height: 30px; 
+  --container-height: 30px;
   --slider-width: 130%;
   --slider-height: 100%;
   --thumb-size: 40%;
-  --thumb-position: calc(
-    var(--container-width) - var(--thumb-size) - 4px
-  ); 
+  --thumb-position: calc(var(--container-width) - var(--thumb-size) - 4px);
 }
 
 .color-mode-selector-container {
@@ -62,9 +60,6 @@
 
 input:checked + .slider {
   background-color: #1b6ec2;
-}
-
-input:focus + .slider {
   box-shadow: 0 0 0.5em rgba(11, 94, 215, 0.5);
 }
 
