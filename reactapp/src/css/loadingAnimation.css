@@ -1,0 +1,18 @@
+.loading-animation {
+  position: relative;
+  margin-left: 40%;
+  width: 15%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #1861ac 94%, #0000) top/1% 1%
+      no-repeat,
+    conic-gradient(#0000 30%, #16589b);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 95%), #000 0);
+  animation: loading-animation 1s infinite linear;
+}
+
+@keyframes loading-animation {
+  100% {
+    transform: rotate(1turn);
+  }
+}

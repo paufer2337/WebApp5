@@ -1,0 +1,105 @@
+:root {
+  --card-border-dark-mode: solid var(--light-gray) 2px;
+  --card-border-light-mode: solid var(--dark-gray) 2px;
+  --box-shadow-dark-mode: 2px 5px 10px var(--light-gray);
+  --box-shadow-light-mode: 2px 5px 10px var(--inverted-light-gray);
+  --short-transition-time: 200ms;
+  --large-border-radius: 30px;
+}
+
+
+.relevant-card {
+  border-radius: 25px;
+  padding: 1%;
+  margin: 2%;
+  transition: all var(--short-transition-time);
+  background-size: cover; 
+  background-position: center; 
+}
+
+
+.light-theme .relevant-card {
+  border: var(--card-border-light-mode);
+  box-shadow: var(--box-shadow-light-mode);
+}
+
+
+.dark-theme .relevant-card {
+  border: var(--card-border-dark-mode);
+  box-shadow: var(--box-shadow-dark-mode);
+}
+
+
+.relevant-card:hover {
+  border-radius: var(--large-border-radius);
+  text-align: center;
+  font-size: x-large;
+  padding: 5%;
+}
+
+
+.light-theme .relevant-card:hover {
+  box-shadow: var(--box-shadow-light-mode);
+}
+
+
+.dark-theme .relevant-card:hover {
+  box-shadow: var(--box-shadow-dark-mode);
+}
+
+
+#relevant-card-title,
+#relevant-today-title,
+#relevant-card-text,
+#relevant-card-link,
+#relevant-card-tags {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-shadow: 
+    1px 1px 0 #000, 
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
+
+#relevant-card-title,
+#relevant-today-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+#relevant-card-text:not(:hover) {
+  font-size: large;
+  margin-bottom: -0.1%;
+}
+
+#relevant-card-text:hover {
+  font-size: x-large;
+}
+
+#relevant-card-link:visited {
+  color: rgb(13, 147, 224);
+}
+
+#relevant-card-link {
+  font-size: large;
+}
+
+#relevant-card-tags {
+  font-size: small;
+}
+
+#relevant-card-tags:hover {
+  font-size: large;
+}
+
+#relevant-card-image {
+  width: 55%;
+  display: flex;
+  margin: 10px auto;
+}
+
+#add-image-button {
+  display: none;
+}
