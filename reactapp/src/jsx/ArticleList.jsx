@@ -125,7 +125,6 @@ const ArticleList = React.memo(
                   <img
                     src={imageUrls[article.id] || ""}
                     className="article-image"
-                    alt="Article visual"
                   />
                   {showImageButton && (
                     <button
