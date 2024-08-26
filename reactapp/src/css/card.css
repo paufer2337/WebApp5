@@ -41,11 +41,9 @@
   text-align: center;
   font-size: x-large;
   padding: 5%;
-  
+
   .card-title {
-    text-align: center;
     font-size: x-large;
-    font-family: "Montserrat", sans-serif;
   }
 }
 
@@ -91,37 +89,32 @@
   display: none;
 }
 
-@media (max-width: 1200px) {
-  .card {
-    width: 45%;
-  }
-}
-
-@media (max-width: 768px) {
-  .card {
-    width: 90%;
-    margin: 1% auto;
-  }
-
-  img {
-    width: 80%;
-  }
-}
-
 @media (max-width: 480px) {
   .card {
     width: 90%;
+    margin: 0;
   }
 
-  .card-title {
-    font-size: medium;
+  .card:hover {
+    border-radius: var(--large-border-radius);
+    text-align: center;
+    font-size: x-large;
+    padding: 4%;
   }
 
-  .card-text {
-    font-size: small;
+  .light-theme-card {
+    border: var(--card-border-light-mode);
+    background-image: url("../img/card_bg_light.png");
+    box-shadow: var(--box-shadow-light-mode);
+    color: var(--light-gray);
   }
 
-  img {
-    width: 100%;
+  .dark-theme-card {
+    border: var(--card-border-dark-mode);
+    background-image: url("../img/card_bg_dark.png");
+    box-shadow: var(--box-shadow-light-mode);
+    color: #e4e4e4;
+    text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000,
+      -1px -1px 0 #000;
   }
 }
