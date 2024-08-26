@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import RelevantCard from "./RelevantArticle.jsx";
 import ArticleList from "./ArticleList.jsx";
 
@@ -8,14 +8,30 @@ const ArticleParent = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log("Token from localStorage:", token);
-
     setShowImageButton(!!token);
-  }, []);
+  }, []); // Runs only on mount
 
-  const updateArticles = (newArticles) => {
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/articles");
+        if (!response.ok) {
+          console.log("Failed to fetch articles");
+        }
+        const data = await response.json();
+        setArticles(data);
+      } catch (error) {
+        console.error("Error fetching articles:", error);
+      }
+    };
+
+    fetchArticles();
+  }, []); // Runs only on mount
+
+  // Memoize updateArticles to avoid unnecessary re-renders of ArticleList
+  const updateArticles = useCallback((newArticles) => {
     setArticles(newArticles);
-  };
+  }, []);
 
   const findRelevantArticle = (articles) => {
     const today = new Date().toISOString().split("T")[0];

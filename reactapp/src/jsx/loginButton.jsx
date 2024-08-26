@@ -6,17 +6,14 @@ function LoginButton() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    // Check if token exists in localStorage
     const token = localStorage.getItem("token");
     setIsLoggedIn(!!token);
   }, []);
 
   const handleButtonClick = () => {
     if (isLoggedIn) {
-      // Logout logic
       localStorage.removeItem("token");
       setIsLoggedIn(false);
-      alert("Logout successful");
       window.location.reload(false);
     } else {
       setShowLogin((prevShowLogin) => !prevShowLogin);

@@ -13,8 +13,6 @@ const Register = () => {
         "http://localhost:3000/api/register"
       );
 
-      alert(data.message);
-
       if (data.status === 201) {
         localStorage.setItem("userRegistered", "true");
       }

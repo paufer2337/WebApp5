@@ -21,7 +21,6 @@ const Login = ({ setIsLoggedIn }) => {
     if (data.token) {
       localStorage.setItem("token", data.token);
       setIsLoggedIn(true);
-      alert("Login successful");
     } else {
       alert(data.message);
     } // Should do state instead for specific components.
