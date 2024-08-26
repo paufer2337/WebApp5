@@ -1,8 +1,9 @@
-import React, {useState, useEffect, useContext}from "react";
+import React, { useState, useEffect, useContext, useCallback } from "react";
 import { getTags } from "./tags.js";
 import "../css/card.css";
 import ThemeContext from "./ThemeContext";
 
+// Convert time function
 const convertTime = (publishedTime) => {
   const options = {
     hour12: false,
@@ -23,6 +24,7 @@ const convertTime = (publishedTime) => {
   return `${localDate} ${localTime}`;
 };
 
+// Handle adding images
 const handleAddImage = (articleId, setImageUrls) => {
   const imageUrl = prompt("Ange URL för bilden:");
   if (imageUrl) {
@@ -33,6 +35,7 @@ const handleAddImage = (articleId, setImageUrls) => {
   }
 };
 
+// ArticleList component
 const ArticleList = React.memo(
   ({ updateArticles, showImageButton, articles }) => {
     const [localArticles, setLocalArticles] = useState(articles);
@@ -40,17 +43,39 @@ const ArticleList = React.memo(
     const [loading, setLoading] = useState(false);
     const [imageUrls, setImageUrls] = useState({});
 
+    // Fetch articles and manage loading state
     useEffect(() => {
+      setLoading(true); // Start loading animation
+      const fetchArticles = async () => {
+        try {
+          const response = await fetch(
+            `http://localhost:3000/api/articles?sortBy=${sortBy}`
+          );
+          if (!response.ok) {
+            console.log("Failed to fetch articles");
+          }
+          const data = await response.json();
+          setLocalArticles(data);
+        } catch (error) {
+          console.error("Error fetching articles:", error);
+        } finally {
+          setLoading(false); // End loading animation
+        }
+      };
+      fetchArticles();
     }, [sortBy]);
 
+    // Update localArticles when articles prop changes
     useEffect(() => {
-      setLocalArticles(articles); 
+      setLocalArticles(articles);
     }, [articles]);
 
+    // Notify parent of article updates
     useEffect(() => {
-      updateArticles(localArticles); 
+      updateArticles(localArticles);
     }, [localArticles, updateArticles]);
 
+    // Handle sort option change
     const handleSortChange = (event) => {
       setSortBy(event.target.value);
     };
@@ -74,7 +99,7 @@ const ArticleList = React.memo(
           </select>
         </div>
         {loading ? (
-          <div className="loading-animation"></div>
+          <div className="loading-animation"></div> // Ensure this class is styled correctly
         ) : (
           <div id="card-collection">
             {localArticles.map((article) => (
@@ -100,13 +125,12 @@ const ArticleList = React.memo(
                   <img
                     src={imageUrls[article.id] || ""}
                     className="article-image"
+                    alt="Article visual"
                   />
                   {showImageButton && (
                     <button
                       className="btn btn-primary"
-                      onClick={() =>
-                        handleAddImage(article.id, setImageUrls)
-                      }>
+                      onClick={() => handleAddImage(article.id, setImageUrls)}>
                       Lägg till bild
                     </button>
                   )}
