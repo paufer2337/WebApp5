@@ -48,7 +48,7 @@ function ColorModeSelector() {
     checked={isChecked}
     onChange={toggleColorMode}
   />
-  <span className="slider"></span>
+  <span className="slider" ></span>
   <label
     id="color-mode-descriptor"
     className={`color-mode-descriptor ${

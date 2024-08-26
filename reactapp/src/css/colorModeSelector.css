@@ -1,11 +1,11 @@
 :root {
   --short-transition-time: 0.4s;
   --container-width: 50px;
-  --container-height: 30px;
+  --container-height: 90%;
   --slider-width: 130%;
   --slider-height: 100%;
   --thumb-size: 40%;
-  --thumb-position: calc(var(--container-width) - var(--thumb-size) - 4px);
+  --thumb-position: calc(var(--container-width) - var(--thumb-size));
 }
 
 .color-mode-selector-container {
@@ -25,7 +25,6 @@
   text-align: center;
   white-space: nowrap;
   font-family: "Montserrat", sans-serif;
-  font-weight: 700;
 }
 
 .color-mode-selector-container input {
@@ -40,11 +39,15 @@
   width: var(--slider-width);
   height: var(--slider-height);
   background-color: #1b6ec2;
-  border-color: #1861ac;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
   transition: var(--short-transition-time);
+}
+
+.slider:hover {
+  background-color: #155a8a;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .slider:before {
@@ -56,11 +59,14 @@
   transition: var(--short-transition-time);
   left: 2px;
   bottom: 2px;
+  border-radius: 5px;
 }
 
+/* Dark mode */
 input:checked + .slider {
   background-color: #1b6ec2;
   box-shadow: 0 0 0.5em rgba(11, 94, 215, 0.5);
+  border: var(--card-border-mode);
 }
 
 input:checked + .slider:before {

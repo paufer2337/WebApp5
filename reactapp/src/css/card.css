@@ -97,6 +97,7 @@
 
   .card:hover {
     border-radius: var(--large-border-radius);
+    box-shadow: var(--box-shadow-light-mode);
     text-align: center;
     font-size: x-large;
     padding: 4%;
